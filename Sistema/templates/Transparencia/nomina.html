@@ -1,0 +1,137 @@
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+   Nomina de empleados muicipales
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+{% block JS %}
+{{block.super}}
+<script src="{% static "js/agency.js" %}"></script>
+{% endblock JS %}
+
+{% block cuerpo %}
+<header  style="background-image: url('{%static "img/Servicios/fondoServicios.JPG"%}');">
+          <div class="container">
+
+            <div class="intro-text">
+                <!--<div class="intro-lead-in"></div>-->
+                <div class="intro-heading">Nomina de empleados</div>
+                <a href="#nomina" class="page-scroll btn btn-xl">Cuentame más</a>
+
+            </div>
+        </div>
+</header>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<table class="table">
+				<caption>NOMINA DE EMPLEADOS MUNICIPALES</caption>
+				<tbody>
+
+					<tr>
+						<td>MARÍA ISABEL CARDONA VALLADARES</td>
+						<td>SECRETARIA MUNICIPAL</td>
+					</tr>
+
+					<tr>
+						<td>LUIS ADAN MARTÍNEZ</td>
+						<td>AUDITOR INTERNO</td>
+					</tr>
+
+					<tr>
+						<td>GERMAN ANTONIO RAMÍREZ</td>
+						<td>CONTADOR</td>
+					</tr>
+
+					<tr>
+						<td>ESMERITA HERNANDEZ LEMUS</td>
+						<td>OFICIAL ACCESO A LA INFORMACIÓN PÚBLICA</td>
+					</tr>
+
+					<tr>
+						<td>RUDY OMAR PANAMEÑO CAMPOS</td>
+						<td>JEFE UACI</td>
+					</tr>
+
+					<tr>
+						<td>EDENILSON ALONSO PÉREZ BELLOSO</td>
+						<td>TESORERO MUNICIPAL</td>
+					</tr>
+
+					<tr>
+						<td>EDWIN EDGARDO GARCÍA ARGEÑAL</td>
+						<td>JEFE CUENTAS CORRIENTES Y CATASTRO</td>
+					</tr>
+
+					<tr>
+						<td>LUIS ADALBERTO LÓPEZ ESCOBAR</td>
+						<td>JEFE REGISTRO ESTADO FAMILIAR</td>
+					</tr>
+
+					<tr>
+						<td>ALBERTO SILVESTRE GONZÁLEZ ORTÍZ</td>
+						<td>JEFE MEDIO AMBIENTE Y GESTIÓN DE RIESGO</td>
+					</tr>
+
+					<tr>
+						<td>XENIA VILMA MIRANDA DE MARTÍNEZ</td>
+						<td>JEFE  PROYECCIÓN SOCIAL Y GESTIÓN NACIONAL E INTERNACIONAL</td>
+					</tr>
+
+					<tr>
+						<td>GLORIBEL RAMÍREZ LÓPEZ</td>
+						<td>ATENCIÓN CIUDADANA</td>
+					</tr>
+
+					<tr>
+						<td>KEVIN ALEXANDER ESCOBAR</td>
+						<td>MOTORISTA</td>
+					</tr>
+
+					<tr>
+						<td>EDUARDO JEZIEL PALACIOS HERNÁNDEZ</td>
+						<td>ORDENANZA</td>
+					</tr>
+
+					<tr>
+						<td>DIONISIO ANTONIO MARTÍNEZ</td>
+						<td>MANTENIMIENTO</td>
+					</tr>
+
+					<tr>
+						<td>FRANCISCO JAVIER CAMPOS</td>
+						<td>MANTENIMIENTO</td>
+					</tr>
+
+					<tr>
+						<td>CONCEPCIÓN HERNÁNDEZ CORTEZ</td>
+						<td>VIGILANTE </td>
+					</tr>
+
+					<tr>
+						<td>JOSÉ ERNESTO JACINTO HERNÁNDEZ PÉREZ</td>
+						<td>VIGILANTE</td>
+					</tr>
+
+					<tr>
+						<td>ALFREDO ANTONIO AYALA</td>
+						<td>VIGILANTE</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+		</div>
+
+	</div>
+	
+</section>
+
+{% endblock cuerpo %}
+    
+{%endblock%}

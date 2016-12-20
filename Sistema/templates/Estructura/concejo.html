@@ -1,0 +1,65 @@
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+    Portal de Municipalidad
+{% endblock titulo %}
+
+
+{% block contenido %}
+{% block JS %}
+<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+{{block.super}} <!--Esto manda a llamar todos los script-->
+
+{% endblock JS %}
+
+{% block cuerpo %}
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Municipalidad</div>
+                <div class="intro-heading">Consejo Municipal</div>
+
+            </div>
+        </div>
+    </header>
+
+
+   <div tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Concejo Municipal</h2>
+
+                                <br>
+                                <h3>Miembros Periodo 2015-2018</h3>
+								<br>
+								{%for concejo in concejos%}
+                                <p>{{concejo.nombre_alcalde}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alcalde</p>
+								<p>{{concejo.nombre_sindico}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Síndico</p>
+								<p>{{concejo.nombre_PRP}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primer Regidor Propietario</p>
+								<p>{{concejo.nombre_SRP}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segundo Regidor Propietario</p>
+								<p>{{concejo.nombre_TRP}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tercer Regidor Propietario</p>
+								<p>{{concejo.nombre_CRP}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuarto Regidor Propietario</p>
+								<p>{{concejo.nombre_PRS}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Primer Regidor Suplente</p>
+								<p>{{concejo.nombre_SRS}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segundo Regidor Suplente</p>
+								<p>{{concejo.nombre_TRS}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tercer Regidor Suplente</p>
+								<p>{{concejo.nombre_CRS}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuarto Regidor Suplente</p>
+								 {% endfor %}
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   {% endblock cuerpo %}
+
+{%endblock%}

@@ -1,0 +1,26 @@
+
+.Titulo{
+  color:#51FAAB;
+  	font-size: 50px;
+  	font-weight: bold;
+  	margin: 0 0 0 0;
+}
+
+.parrafo{
+  color:#303633;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 0 0;
+}
+
+#titulo1{
+  background-color: #ECFF41;
+  color:#660000;
+  	font-size:17px;
+  	font-weight: bold;
+  	margin: 0 0 0 0;
+}
+
+.row {
+  border-radius: 20px;
+}

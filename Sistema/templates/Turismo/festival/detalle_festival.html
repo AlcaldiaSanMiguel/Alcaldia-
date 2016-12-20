@@ -1,0 +1,113 @@
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+    Festival Gastronómico - Alcaldia de San Miguel Tepezontes
+{% endblock titulo %}
+
+{% block contenido %}
+{% block JS %}
+{{block.super}} <!--Esto manda a llamar todos los script-->
+
+
+{% endblock JS %}
+
+<div class="call-to-action">
+  <div class="call-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-10">  
+       </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="call-to-action">
+  <div class="call-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-10">
+         
+            <h1 style="color:#70F1EC">{{festival.nombre}}</h1>    
+       </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tur1" class="call-to-action">
+  <div class="call-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-10">
+          <div class="subscribe-text">
+      
+      <p style="text-align:justify;">{{festival.descripcion}}</p>
+    
+      </div>
+        </div>
+        <div class="col-md-4 text-center"> 
+      <div class="counter-item text-center" >
+   
+            <img src="{% static festival.imagen %}" alt=""  width="400" height="200">
+          </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="t1" class="portfolio">
+{% for gale in galeria %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+
+                    <h3>{{ gale.nombre_foto}}</h3>
+                </div>
+            </div>
+            <div class="row">
+
+                {% for imagen  in gale.imagen_festival.all %}
+                <div class="col-md-4 col-sm-6 col-md-offset-1 portfolio-item">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                            </div>
+                        </div>
+                          <img src="{% static imagen.imagen_galeria %}"  class="img-rounded img-portfolio" alt="" width="450" height="400">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+</div>
+
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"> <span class="copyright">Copyright &copy; San Miguel Tepezontes</span> </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li>Regresar a <a href="/festival">Festival Gastronómico</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="{% static "js/jquery.countTo.js" %}"></script> 
+<script type="text/javascript" src="{% static "js/jquery.waypoints.min.js" %}"></script> 
+{% endblock contenido %}

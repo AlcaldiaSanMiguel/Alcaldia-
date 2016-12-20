@@ -1,0 +1,57 @@
+{% extends "shared.html" %}
+{% load staticfiles %}
+{% block navegacion %}
+    
+{% endblock navegacion %}
+{% block contenido %}
+    <!-- Page Content -->
+    <div class="container">
+        {% for hermanamiento in hermanamientos %}
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Hermanamientos</h1>
+            </div>
+            <div class="col-lg-12">
+            	<h2>
+            		<small>{{ hermanamiento.descripcion }}</small>
+            	</h2>
+            	
+            </div>
+        </div>
+        <!-- /.row -->
+        
+
+        <!-- Projects Row -->
+        <div class="row">
+            {% for imagen in hermanamiento.imagen.all %}
+            <div class="col-md-6 portfolio-item">
+                <a href="{% static imagen.imagen_contenido %}">
+                    <img class="img-responsive portafolio redondo" src="{% static imagen.imagen_contenido %}" alt="">
+                </a>
+            </div>
+             {% endfor %}
+        </div>
+        <!-- /.row -->
+        <hr>
+       
+
+        {% endfor %}
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+{% endblock contenido %}

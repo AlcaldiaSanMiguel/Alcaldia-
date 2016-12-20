@@ -1,0 +1,80 @@
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+   Infraestructura y gestion de riesgos
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+{% block JS %}
+{{block.super}}
+<script src="{% static "js/agency.js" %}"></script>
+{% endblock JS %}
+
+{% block cuerpo %}
+<header  style="background-image: url('{%static "img/InfraestructuraGestionRiesgos/GR.jpg"%}');">
+          <div class="container">
+
+            <div class="intro-text">
+                <!--<div class="intro-lead-in"></div>-->
+                <div class="intro-heading">Infraestructura y gestion de riesgos</div>
+                <a href="#infraestructura" class="page-scroll btn btn-xl">Cuentame más</a>
+            </div>
+        </div>
+</header>
+
+<!-- infraestructuraGR Section -->
+    {% for infraestructura in infraestructuras.object_list %}
+    <section id="infraestructura" class="bg-light-gray">
+    <div class="container" >
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{infraestructura.titulo}}</h2>
+                <h3 class="section-subheading text-muted">Fecha de inicio: {{infraestructura.fecha}}</h3>
+                <h3 class="section-subheading text-muted">{{infraestructura.descripcion}}</h3>
+            </div>
+        </div>
+        <div class="row">
+        {% for imagen in infraestructura.imagen.all %}
+          <div class="col-xs-12 col-md-3">
+            <a href="imagen.imagen_Contproyecto" class="">
+              <img src="{% static imagen.imagen_Contproyecto %}"  class="img-responsive img-rounded" alt="">
+              <p>
+            </a>
+          </div>
+
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+    {% endfor%}
+    <hr>
+
+
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <ul class="pagination">
+
+                {% if infraestructuras.has_previous %}
+                <li><a href="?page={{ infraestructura.previous_page_number }}&#infraestructura">Anterior</a></li>
+                {% endif %}
+
+                {% for pg in infraestructuras.paginator.page_range %}
+                {% if infraestructuras.number == pg %}
+                <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                {% else %}
+                <li><a href="?page={{ pg }}&#infraestructura">{{ pg }}</a></li>
+                {% endif %}
+                {% endfor%}
+                {% if infraestructuras.has_next %}
+                <li><a href="?page={{ infraestructuras.next_page_number }}&#infraestructura">Siguiente</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+
+{% endblock cuerpo %}
+
+{%endblock%}

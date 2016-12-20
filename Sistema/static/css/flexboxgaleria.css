@@ -1,0 +1,32 @@
+section.galeria {
+   padding: .5vw;
+   font-size: 0;
+   -ms-flex-wrap: wrap;
+   -ms-flex-direction: column;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+   display: -webkit-box;
+   display: flex;
+   display: -ms-flexbox; /*IE 10*/
+   margin: 5% ;
+}
+section.galeria div {
+   -webkit-box-flex: auto;
+   -ms-flex: auto;
+   flex: auto;
+   width: 200px;
+   margin: .5vw;
+}
+section.galeria div img {
+   width: 100%;
+   height: auto;
+}
+ /*Media Queries*/
+ @media screen and (max-width: 400px) {
+   section.galeria div {
+       margin: 0;
+   }
+   section.galeria {
+   padding: 0;
+   }
+}
