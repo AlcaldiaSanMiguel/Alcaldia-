@@ -135,7 +135,8 @@ def historia(request):
 
 
 def index(request):
-	return render(request,'Inicio/index.html',{})
+	documento= Documento.objects.filter(id = "1")
+	return render(request,'Inicio/index.html',{'documentos':documento})
 
 
 def infraestructuraGR(request):
