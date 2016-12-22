@@ -205,7 +205,7 @@ def noticia_select(request, id_noticia):
 
 
 def ordenanza(request):
-		documento = Documento.Objetcs.filter(id="2")
+		documento = Documento.objects.filter(id="2")
 		return render(request, 'Transparencia/ordenanza.html',{'documento':documento})
 
 def organigrama(request):

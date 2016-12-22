@@ -25,12 +25,12 @@
             </div>
         </div>
     </header>
-    {%for documento in documentos%}
+    {% for documento in documentos %}
      <div class="col-md-3">
 
            <span class="fa-stack fa-4x">
 
-  <!--AQuie esta el fallo -->         <a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+  <!--AQuie esta el fallo --><a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
 
                <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
            </span>
@@ -38,7 +38,7 @@
            <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios de la municipalidad en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
 
     </div>
-      {%endfor%}
+      {% endfor %}
 
       {% endblock cuerpo %}
 
