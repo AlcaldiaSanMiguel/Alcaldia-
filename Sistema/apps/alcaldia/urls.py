@@ -14,8 +14,6 @@ urlpatterns = [
     url(r'^servicios/', servicios),
     url(r'^mantenimientoCalles/', mantenimientoCalles),
     url(r'^alumbrado/', alumbrado),
-    url(r'^Catastro/', Catastro),
-
     #URLS noticias
     url(r'^noticias/$', noticias, name='noticias'),
     url(r'^noticias/detalle/(?P<id_noticia>\d+)/$', noticia_select, name='detalle_noticia'),
@@ -41,7 +39,6 @@ urlpatterns = [
     url(r'^transparencia/', transparencia),
     url(r'^organigrama/', organigrama),
     url(r'^autoridades/', autoridades),
-
     url(r'^municipalidad/', municipalidad),
     url(r'^concejo/', concejo),
     url(r'^mensaje/', mensaje),
