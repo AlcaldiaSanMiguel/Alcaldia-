@@ -203,11 +203,6 @@ def noticia_select(request, id_noticia):
 
 	return render(request, 'Noticias/detalle_noticia.html',{'noticia':noticia})
 
-
-def ordenanza(request):
-		documento= Documento.objects.exclude(id = "1")
-		return render(request, 'Transparencia/ordenanza.html',{'documentos':documento})
-
 def organigrama(request):
 		return render(request, 'Transparencia/organigrama.html',{})
 
@@ -266,4 +261,5 @@ def TasasMunicipales(request):
 
 
 def transparencia(request):
-		return render(request, 'Transparencia/transparencia.html',{})
+	documento= Documento.objects.filter(id = "2")
+	return render(request, 'Transparencia/transparencia.html',{'documentos':documento})

@@ -6,11 +6,11 @@ from apps.alcaldia.views import *
 
 urlpatterns = [
    url(r'^$', index),
-   
 
 
 
- 
+
+
     url(r'^servicios/', servicios),
     url(r'^mantenimientoCalles/', mantenimientoCalles),
     url(r'^alumbrado/', alumbrado),
@@ -39,7 +39,6 @@ urlpatterns = [
     url(r'^TasasMunicipales/', TasasMunicipales),
     url(r'^infraestructuraGR/', infraestructuraGR),
     url(r'^transparencia/', transparencia),
-    url(r'^ordenanza/', ordenanza),
     url(r'^organigrama/', organigrama),
     url(r'^autoridades/', autoridades),
 
@@ -49,6 +48,5 @@ urlpatterns = [
     url(r'^estructura/', estructura),
     url(r'^nomina/', nomina),
 
-    
-]
 
+]
