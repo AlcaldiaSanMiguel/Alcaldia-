@@ -42,7 +42,7 @@ def comida_select(request, id_comida):
         galeria = ComidaFotos.objects.filter(categoria_id=id_comida)
     except ComidaFotos.DoesNotExist:
        raise Http404
-        
+
     return render(request, 'Turismo/comida/detalle_comida.html',{'comida':comida,'galeria':galeria})
 
 def contacto(request):
@@ -91,7 +91,7 @@ def festival_select(request, id_festival):
         galeria = FestivalFotos.objects.filter(categoria_id=id_festival)
     except FestivalFotos.DoesNotExist:
        raise Http404
-        
+
     return render(request, 'Turismo/festival/detalle_festival.html',{'festival':festival,'galeria':galeria})
 
 def fiesta(request):
@@ -113,7 +113,7 @@ def fiesta_select(request, id_fiesta):
         fiesta = Fiesta.objects.get(id=id_fiesta)
         galeria = FiestaFotos.objects.filter(categoria_id=id_fiesta)
     except FiestaFotos.DoesNotExist:
-       raise Http404   
+       raise Http404
     return render(request, 'Turismo/fiesta/detalle_fiestas.html',{'fiesta':fiesta,'galeria':galeria})
 
 def hermanamientos(request):
@@ -166,7 +166,7 @@ def mantenimientoCalles(request):
 	return render(request, 'Proyectos/mantenimientoCalles.html',{'mantenimientos':mantenimiento})
 
 
-		
+
 def municipalidad(request):
 		return render(request, 'Municipalidad/municipalidad.html',{})
 
@@ -204,7 +204,8 @@ def noticia_select(request, id_noticia):
 
 
 def ordenanza(request):
-		return render(request, 'Transparencia/ordenanza.html',{})
+		documento = Documento.Objetcs.filter(id="2")
+		return render(request, 'Transparencia/ordenanza.html',{'documento':documento})
 
 def organigrama(request):
 		return render(request, 'Transparencia/organigrama.html',{})
@@ -251,7 +252,7 @@ def turismo_select(request, id_turismo):
 		galeria = TurismoFotos.objects.filter(categoria_id=id_turismo)
 	except TurismoFotos.DoesNotExist:
 	   raise Http404
-		
+
 	return render(request, 'Turismo/turismo/detalle_turismo.html',{'turismo':turismo,'galeria':galeria})
 
 
@@ -265,5 +266,3 @@ def TasasMunicipales(request):
 
 def transparencia(request):
 		return render(request, 'Transparencia/transparencia.html',{})
-
-

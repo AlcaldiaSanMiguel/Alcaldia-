@@ -1,26 +1,45 @@
-
+.fondo{
+  background-color:  #e1e1de;
+}
 .Titulo{
-  color:#51FAAB;
-  	font-size: 50px;
-  	font-weight: bold;
-  	margin: 0 0 0 0;
+  color: #292825;
+  border-width: 1;
+  font-style: italic;
+  font-size: 50px;
+  font-weight: bold;
+
 }
 
-.parrafo{
-  color:#303633;
-    font-size: 25px;
+.final{
+  text-align: right;
+  color: #303633;
+    font-size: 15px;
     font-weight: bold;
     margin: 0 0 0 0;
 }
 
+
 #titulo1{
-  background-color: #ECFF41;
-  color:#660000;
+  background-color: #383a3a;
+  color: #dfedf1;
   	font-size:17px;
   	font-weight: bold;
   	margin: 0 0 0 0;
 }
 
-.row {
-  border-radius: 20px;
+#montot{
+  text-align: center;
+}
+
+#nombre{
+  font: small-caps 90% sans-serif ;
+  border: 2;
+  border-color: #383a3a;
+}
+
+#monto{
+  font: small-caps 110% sans-serif small-caps;
+  text-align: center;
+  border: 2;
+  border-color: #383a3a;
 }
