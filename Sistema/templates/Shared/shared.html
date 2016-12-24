@@ -121,7 +121,12 @@
       </div>
       <div class="col-md-4">
         <ul class="list-inline quicklinks">
-          <li>Regresar a <a href="/">Inicio</a> </li>
+          <li>
+          Regresar a 
+          {% block enlace %}
+              <a href="/">Inicio</a> 
+          {% endblock enlace %}
+          </li> 
         </ul>
       </div>
     </div>
