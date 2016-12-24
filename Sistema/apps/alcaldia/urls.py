@@ -22,6 +22,7 @@ urlpatterns = [
 
     #URLS programas
     url(r'^programas/', programas),
+    url(r'^hermanamientos/', hermanamientos),
     #fin URLS programas
 
     url(r'^contactanos/', contacto),
