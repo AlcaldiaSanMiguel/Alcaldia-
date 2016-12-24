@@ -65,6 +65,20 @@ def Catastro(request):
 def concejo(request):
 		return render(request, 'Estructura/concejo.html',{})
 
+def desechosSolidos(request):
+	desechos_list= Proyecto.objects.filter(tipo_proyecto = "6").order_by('-fecha')
+	paginador = Paginator(desechos_list, 3)
+	try:
+		page = int(request.GET.get("page",'1'))
+	except:
+		page = 1
+	try:
+		desecho = paginador.page(page)
+	except(EmptyPage, InvalidPage):
+		desecho = paginador.page(paginador.num_pages)
+	return render(request,'Proyectos/desechosSolidos.html',{'desechos':desecho})
+
+
 def estructura(request):
 		return render(request, 'Estructura/estructura.html',{})
 

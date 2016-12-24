@@ -5,66 +5,35 @@
 {% endblock navegacion %}
 
  {% block contenido %}
+
      <div class="container">
+            <div class="row">
 
-        
-        <div class="row">
+                <!-- Columna de contenido -->
+                <div class="col-lg-10 col-md-offset-1">
 
-            <!-- Blog Post Content Column -->
-            <div class="col-lg-8">
+                    <!-- Titulo-->
+                    <h1>{{noticia.nombre_noticia}}</h1>
 
-                <!-- Blog Post -->
+                    <!-- Author -->
+                    <p class="lead">
+                    </p>
 
-                <!-- Title -->
-                <h1>{{noticia.nombre_noticia}}</h1>
+                    <hr>
 
-                <!-- Author -->
-                <p class="lead">
-                </p>
+                    <!-- Preview Image -->
+                    <img class="img-responsive redondo"  src="{% static noticia.imagen_descriptiva %}" alt="" />
 
-                <hr>
+                    <hr>
 
-                <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Publicado el 11 de Diciembre, 2016 at 1:00 AM</p>
+                    <!-- Post Content -->
+                    <p class="lead">{{noticia.descripcion}}</p>
 
-                <hr>
-
-                <!-- Preview Image -->
-                <img class="img-responsive mediana redondo"  src="{% static noticia.imagen_descriptiva %}" alt="" />
-
-                <hr>
-
-                <!-- Post Content -->
-                <p class="lead">{{noticia.descripcion}}</p>
-
-                <hr>
-
-               
-
-                
-         
-        <hr>
-
-    
-
+                    <hr>
+                    <hr>
+                </div>
+            </div>
     </div>
 
-    <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4"> <span class="copyright">Copyright &copy; San Miguel Tepezontes</span> </div>
-      <div class="col-md-4">
-        <ul class="list-inline social-buttons">
-          <li><a href="https://es-la.facebook.com/people/Jose-Cruz-Quintanilla/100010328133401"><i class="fa fa-facebook"></i></a> </li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li>Regresar a <a href="/">Inicio</a> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
  {% endblock contenido %}
  

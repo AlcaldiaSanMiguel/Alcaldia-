@@ -17,6 +17,7 @@ urlpatterns = [
     #URLS noticias
     url(r'^noticias/$', noticias, name='noticias'),
     url(r'^noticias/detalle/(?P<id_noticia>\d+)/$', noticia_select, name='detalle_noticia'),
+    url(r'^desechosSolidos/', desechosSolidos),
     #fin URLS noticias
 
     #URLS programas
