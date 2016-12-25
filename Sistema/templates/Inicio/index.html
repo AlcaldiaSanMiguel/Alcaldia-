@@ -10,9 +10,9 @@
           <header>
               <div class="container">
                   <div class="intro-text">
-                      <div class="intro-lead-in">Bienvenidos a nuestro municipio!</div>
-                      <div class="intro-heading">Es un placer que nos visite</div>
-                      <a href="#services" class="page-scroll btn btn-xl">Cuentame más</a>
+                      <div class="intro-lead-in" style="text-shadow:5px 5px #000;">Bienvenidos a nuestro municipio!</div>
+                      <div class="intro-heading" style="text-shadow:5px 5px #000;">Es un placer que nos visite</div>
+                      <a href="#services" class="page-scroll btn btn-xl" style="text-shadow:1px 1px #000;">Cuentame más</a>
                   </div>
               </div>
           </header>
@@ -27,7 +27,7 @@
                                       </div>
                                   </div>
                                   <div class="row text-center">
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                               <span class="fa-stack fa-4x">
                                                   <a href="/municipalidad"><i class="fa fa-circle fa-stack-2x text-primary"></i>
                                                   <i class="fa fa fa-university fa-stack-1x fa-inverse"></i></a>
@@ -35,7 +35,7 @@
                                               <h4 class="service-heading">Municipalidad</h4>
                                               <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                           </div>
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                           <span class="fa-stack fa-4x">
                                              <a href="/transparencia"> <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                               <i class="fa fa-search fa-stack-1x fa-inverse"></i></a>
@@ -43,7 +43,7 @@
                                           <h4 class="service-heading">Portal de transparencia</h4>
                                           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                       </div>
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                           <span class="fa-stack fa-4x">
                                             <a href="/noticias"><i class="fa fa-circle fa-stack-2x text-primary"></i>
                                               <i class="fa fa-book fa-stack-1x fa-inverse"></i></a>
@@ -52,7 +52,7 @@
                                           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                       </div>
                                       {%for documento in documentos%}
-                                       <div class="col-md-3">
+                                       <div class="col-md-2">
 
                                              <span class="fa-stack fa-4x">
 
@@ -61,12 +61,12 @@
                                                  <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
                                              </span>
                                              <h4 class="service-heading">Registro del estador familiar</h4>
-                                             <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios de la municipalidad en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+                                             <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios de la municipalidad en una sola seccion.</p>
 
                                       </div>
                                         {%endfor%}
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                           <span class="fa-stack fa-4x">
                                             <a href="/programas"><i class="fa fa-circle fa-stack-2x text-primary"></i>
                                               <i class="fa fa-cogs fa-stack-1x fa-inverse"></i></a>
@@ -74,7 +74,7 @@
                                           <h4 class="service-heading">Programas</h4>
                                           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                                       </div>
-                                      <div class="col-md-3">
+                                      <div class="col-md-2">
                                           <span class="fa-stack fa-4x">
                                             <a href="/hermanamientos"><i class="fa fa-circle fa-stack-2x text-primary"></i>
                                               <i class="fa fa-check fa-stack-1x fa-inverse"></i></a>
@@ -136,11 +136,13 @@
                                                   <i class="fa fa-plus fa-3x"></i>
                                               </div>
                                           </div>
-                                          <img src="{% static "img/Index/Proyectos/camionesbasura.jpg"%}"  class="img-responsive" alt="">
+                                          <img src="{% static "img/Index/Proyectos/camionesbasura.png"%}"  class="img-responsive" alt="">
                                       </a>
                                       <div class="portfolio-caption">
                                           <h4>Desechos solidos</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit</p>
+                                          <p class="text-muted">El camión recolector circula los días lunes, miércoles y
+                                            viernes dentro del área urbana  en los Barrios El Centro, El Calvario, El Rosario,
+                                            El Carmen y El Tránsito; también llega hasta los cantones Soledad Las Flores y San Bartolo.</p>
                                       </div>
                                   </div>
                               </div>
@@ -152,7 +154,7 @@
                                                   <i class="fa fa-plus fa-3x"></i>
                                               </div>
                                           </div>
-                                          <img src="{% static "img/Index/Proyectos/Alumbrado.JPG" %}" class="img-responsive" alt="">
+                                          <img src="{% static "img/Index/Proyectos/Alumbrados.JPG" %}" class="img-responsive" alt="">
                                       </a>
                                       <div class="portfolio-caption">
                                           <h4>Alumbrado publico</h4>

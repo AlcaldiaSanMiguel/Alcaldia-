@@ -13,13 +13,13 @@
 {% endblock JS %}
 
 {% block cuerpo %}
-<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoAlumbrado.JPG"%}');">
+<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoAlumbrados.JPG"%}');">
           <div class="container">
 
             <div class="intro-text">
                 <!--<div class="intro-lead-in"></div>-->
-                <div class="intro-heading">Alumbrado publico</div>
-                <a href="#alumbrado" class="page-scroll btn btn-xl">Cuentame más</a>
+                <div class="intro-heading" style="text-shadow:3px 3px #000;">Alumbrado Público</div>
+                <a href="#alumbrado" class="page-scroll btn btn-xl" style="text-shadow:1px 1px #000;">Cuentame más</a>
 
             </div>
         </div>
@@ -27,13 +27,6 @@
 <br/>
 <br/>
 <br/>
-<div class="row">
-  <div class="col-md-offset-8">
-    <a href="/contactanos">
-    <button type="button" class="btn btn-danger">Reportar Luminaria dañada </button>
-  </a>
-  </div>
-
     <!-- calles Section -->
     {% for alumbrado in alumbrados.object_list %}
     <section id="alumbrado" class="bg-light-gray">
@@ -61,6 +54,13 @@
     {% endfor %}
     <hr>
 
+    <div class="row text-center">
+      <div class="col-md-8"><p>  Si tiene el conocimiento de alguna luminaria dañada en el municipio porfavor hacérnoslo saber con un mensaje a nuestro correo.</p></div>
+
+      <div class="col-md-4"><a href="/contactanos">
+      <button type="button" class="btn btn-danger">Reportar Luminaria dañada </button>
+    </a></div>
+    </div>
 
     <div class="row text-center">
         <div class="col-lg-12">

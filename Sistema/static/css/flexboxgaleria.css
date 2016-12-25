@@ -10,6 +10,7 @@ section.galeria {
    display: -ms-flexbox; /*IE 10*/
    margin: 5% ;
 }
+
 section.galeria div {
    -webkit-box-flex: auto;
    -ms-flex: auto;
