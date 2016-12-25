@@ -39,7 +39,7 @@ class FestivalFotoAdmin(admin.ModelAdmin):
     list_display = ('categoria','nombre_foto')
 
 class FiestaAdmin(admin.ModelAdmin):
-    list_display = ('nombre','fecha','descripcion','imagen')
+    list_display = ('nombre','descripcion','imagen')
 
 class FiestaFotoAdmin(admin.ModelAdmin):
     list_display = ('categoria','nombre_foto')
@@ -57,7 +57,7 @@ class ProgramaAdmin(admin.ModelAdmin):
 	list_display = ('nombre_programa','titulo','descripcion')
 
 class ProyectoAdmin(admin.ModelAdmin):
-	list_display = ('tipo_proyecto','titulo','descripcion','fecha')
+	list_display = ('tipo_proyecto','titulo','descripcion')
 
 class TipoProyectoAdmin(admin.ModelAdmin):
 	list_display=('tipo_proyecto',)

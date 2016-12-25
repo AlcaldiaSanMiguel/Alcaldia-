@@ -3,6 +3,10 @@ from __future__ import absolute_import
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 from django.db import models
 
 # Create your models here.

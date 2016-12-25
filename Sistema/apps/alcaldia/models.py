@@ -3,6 +3,10 @@ from __future__ import absolute_import
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 
 from django.db import models
 
@@ -47,7 +51,7 @@ def noticia_delete(sender, instance, **kwargs):
 	instance.imagen_descriptiva.delete(False)
 
 class Programa(models.Model):
-	nombre_programa = models.CharField(max_length=70)
+	nombre_programa = models.CharField(max_length=70, unique=True)
 	titulo = models.CharField(max_length=200)
 	descripcion = models.CharField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
@@ -67,10 +71,9 @@ class TipoProyecto(models.Model):
 		return '%s' %(self.tipo_proyecto)
 
 class Proyecto(models.Model):
-	tipo_proyecto =models.ForeignKey(TipoProyecto)
+	tipo_proyecto = models.OneToOneField(TipoProyecto)
 	titulo = models.CharField(max_length=200)
 	descripcion = models.CharField(max_length=500)
-	fecha = models.DateField(auto_now=False, auto_now_add=False, null=True)
 	imagen  = models.ManyToManyField(ContenidoProyecto)
 
 	class Meta:
@@ -89,7 +92,7 @@ class TipoTasa(models.Model):
 
 
 class Tasas(models.Model):
-	tipo = models.ForeignKey(TipoTasa)
+	tipo = models.OneToOneField(TipoTasa)
 	nombre_tasa = models.CharField(max_length=70)
 	monto = models.FloatField()
 
