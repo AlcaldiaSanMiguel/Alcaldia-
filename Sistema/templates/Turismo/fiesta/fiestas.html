@@ -38,6 +38,7 @@
     </div>
   </div>
 </div>
+{% if fiestas %}
 {% for fiesta in fiestas %}
 <div id="tur1" class="call-to-action">
   <div class="call-overlay">
@@ -90,6 +91,10 @@
                 </ul>
             </div>
         </div>
+
+        {% else %}
+     <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>           
+    {% endif %}
 <script type="text/javascript" src="{% static "js/jquery.countTo.js" %}"></script> 
 <script type="text/javascript" src="{% static "js/jquery.waypoints.min.js" %}"></script> 
 {% endblock contenido %}

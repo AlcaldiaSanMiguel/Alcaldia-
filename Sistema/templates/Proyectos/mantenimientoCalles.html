@@ -24,7 +24,7 @@
             </div>
         </div>
 </header>
-
+    {% if mantenimientos %}
     <!-- calles Section -->
     {% for mantenimiento in mantenimientos.object_list %}
     <section id="calles" class="bg-light-gray">
@@ -78,6 +78,10 @@
             </ul>
         </div>
     </div>
+
+    {% else %}
+     <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>           
+    {% endif %}
 
 {% endblock cuerpo %}
 

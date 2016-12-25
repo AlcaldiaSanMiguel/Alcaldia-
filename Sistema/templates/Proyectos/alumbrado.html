@@ -13,7 +13,7 @@
 {% endblock JS %}
 
 {% block cuerpo %}
-<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoAlumbrados.JPG"%}');">
+<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoAlumbrados.jpg"%}');">
           <div class="container">
 
             <div class="intro-text">
@@ -27,6 +27,17 @@
 <br/>
 <br/>
 <br/>
+<<<<<<< Updated upstream
+=======
+<div class="row">
+  <div class="col-md-offset-8">
+    <a href="/contactanos">
+    <button type="button" class="btn btn-danger">Reportar Luminaria dañada </button>
+  </a>
+  </div>
+
+    {% if alumbrados %}
+>>>>>>> Stashed changes
     <!-- calles Section -->
     {% for alumbrado in alumbrados.object_list %}
     <section id="alumbrado" class="bg-light-gray">
@@ -83,7 +94,9 @@
             </ul>
         </div>
     </div>
-
+    {% else %}
+    <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>
+    {% endif %}
 {% endblock cuerpo %}
 
 {%endblock%}

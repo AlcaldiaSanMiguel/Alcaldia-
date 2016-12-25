@@ -18,12 +18,15 @@
 
             <div class="intro-text">
                 <!--<div class="intro-lead-in"></div>-->
-                <div class="intro-heading">Infraestructura y gestion de riesgos</div>
+                <div class="intro-heading" style="text-shadow:3px 3px #000;">Infraestructura y gestion de riesgos</div>
                 <a href="#infraestructura" class="page-scroll btn btn-xl">Cuentame más</a>
             </div>
         </div>
 </header>
 
+    {% if infraestructuras %}
+
+    
 <!-- infraestructuraGR Section -->
     {% for infraestructura in infraestructuras.object_list %}
     <section id="infraestructura" class="bg-light-gray">
@@ -74,6 +77,10 @@
             </ul>
         </div>
     </div>
+    {% else %}
+     <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>           
+    {% endif %}
+
 
 {% endblock cuerpo %}
 

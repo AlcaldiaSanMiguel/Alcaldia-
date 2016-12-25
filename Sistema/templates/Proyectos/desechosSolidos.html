@@ -27,6 +27,8 @@
             </div>
         </div>
 </header>
+    {% if desechos %}
+
 
     <!-- calles Section -->
     {% for desecho in desechos.object_list %}
@@ -81,6 +83,9 @@
             </ul>
         </div>
     </div>
+    {% else %}
+      <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>
+    {% endif %}
 
 {% endblock cuerpo %}
 
