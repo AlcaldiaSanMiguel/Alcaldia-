@@ -13,7 +13,7 @@
 {% endblock JS %}
 
 {% block cuerpo %}
-<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoAlumbrado.JPG"%}');">
+<header  style="background-image: url('{%static "img/Index/Cabeceras/fondoNoticias.JPG"%}');">
           <div class="container">
 
             <div class="intro-text">
@@ -47,7 +47,7 @@
                 {% for noticia in noticias.object_list %}
                 <div class="row">
                     <div class="col-md-5">
-                        <a href="{% static noticia.imagen_descriptiva %}">
+                        <a href="{% url 'alcaldia:detalle_noticia' noticia.id %}">
                             <img class="img-responsive mediana redondo"  src="{% static noticia.imagen_descriptiva %}" alt="" />
                         </a>
                     </div>

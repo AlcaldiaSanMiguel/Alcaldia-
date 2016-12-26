@@ -17,7 +17,7 @@ from apps.gestion.models import *
 class Mensaje(models.Model):
 	nombre = models.CharField(max_length=30)
 	email  = models.CharField(max_length=50)
-	mensaje = models.CharField(max_length=500)
+	mensaje = models.TextField(max_length=500)
 	class Meta:
 		verbose_name='Mensaje'
 		verbose_name_plural='Mensajes'
@@ -37,7 +37,7 @@ class ContactosEmergencia(models.Model):
 
 class Noticias(models.Model):
 	nombre_noticia = models.CharField(max_length=100)
-	descripcion = models.CharField(max_length=2000)
+	descripcion = models.TextField(max_length=2000)
 	imagen_descriptiva = models.ImageField(upload_to='noticias/')
 
 	class Meta:
@@ -51,9 +51,9 @@ def noticia_delete(sender, instance, **kwargs):
 	instance.imagen_descriptiva.delete(False)
 
 class Programa(models.Model):
-	nombre_programa = models.CharField(max_length=70, unique=True)
+	nombre_programa = models.CharField(max_length=80, unique=True)
 	titulo = models.CharField(max_length=200)
-	descripcion = models.CharField(max_length=500)
+	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
 
 	class Meta:
@@ -63,7 +63,7 @@ class Programa(models.Model):
 		return '%s' %(self.nombre_programa)
 
 class TipoProyecto(models.Model):
-	tipo_proyecto = models.CharField(max_length=30)
+	tipo_proyecto = models.CharField(max_length=80)
 	class Meta:
 		verbose_name='Tipo proyecto'
 		verbose_name_plural = 'Tipos proyectos'
@@ -73,7 +73,7 @@ class TipoProyecto(models.Model):
 class Proyecto(models.Model):
 	tipo_proyecto = models.OneToOneField(TipoProyecto)
 	titulo = models.CharField(max_length=200)
-	descripcion = models.CharField(max_length=500)
+	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoProyecto)
 
 	class Meta:
@@ -83,7 +83,7 @@ class Proyecto(models.Model):
 		return '%s' %(self.tipo_proyecto)
 
 class TipoTasa(models.Model):
-	nombre_tipo = models.CharField(max_length=30)
+	nombre_tipo = models.CharField(max_length=80)
 	class Meta:
 		verbose_name='Tipo tasa municipal'
 		verbose_name_plural = 'Tipo tasas municipales'
@@ -93,7 +93,7 @@ class TipoTasa(models.Model):
 
 class Tasas(models.Model):
 	tipo = models.OneToOneField(TipoTasa)
-	nombre_tasa = models.CharField(max_length=70)
+	nombre_tasa = models.CharField(max_length=80)
 	monto = models.FloatField()
 
 	class Meta:
@@ -113,7 +113,7 @@ class Documento(models.Model):
 		return '%s' %(self.nombre_documento)
 
 class Hermanamientos(models.Model):
-	descripcion = models.CharField(max_length=500)
+	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
 
 	class Meta:
@@ -125,7 +125,7 @@ class Hermanamientos(models.Model):
 
 class Historia(models.Model):
 	titulo_historia = models.CharField(max_length=100)
-	descripcion = models.CharField(max_length=5000)
+	descripcion = models.TextField(max_length=5000)
 	imagen_descriptiva = models.ImageField(upload_to='historias/')
 
 	class Meta:
@@ -141,7 +141,7 @@ def imagen_descriptiva_delete(sender, instance, **kwargs):
 
 class Turismo(models.Model):
 	nombre= models.CharField(max_length=200)
-	descripcion = models.CharField(max_length=500)
+	descripcion = models.TextField(max_length=500)
 	imagen  = models.ImageField(upload_to='turismoTemas/')
 
 	class Meta:
@@ -170,7 +170,7 @@ class TurismoFotos(models.Model):
 
 class Comida(models.Model):
     nombre= models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=500)
+    descripcion = models.TextField(max_length=500)
     imagen  = models.ImageField(upload_to='comidaTemas/')
 
     class Meta:
@@ -199,7 +199,7 @@ class ComidaFotos(models.Model):
 
 class Festival(models.Model):
     nombre= models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=500)
+    descripcion = models.TextField(max_length=500)
     imagen  = models.ImageField(upload_to='festivalTemas/')
 
     class Meta:
@@ -229,7 +229,7 @@ class FestivalFotos(models.Model):
 class Fiesta(models.Model):
     nombre= models.CharField(max_length=200)
     fecha= models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=5000)
+    descripcion = models.TextField(max_length=5000)
     imagen  = models.ImageField(upload_to='fiestaTemas/')
 
     class Meta:

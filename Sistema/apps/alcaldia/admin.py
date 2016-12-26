@@ -45,9 +45,6 @@ class FiestaFotoAdmin(admin.ModelAdmin):
     list_display = ('categoria','nombre_foto')
 
 class NoticiasAdmin(admin.ModelAdmin):
-	formfield_overrides={
-	models.CharField: {'widget': Textarea(attrs={'rows':4, 'cols':40})},
-	}
 	list_display = ('nombre_noticia','descripcion','imagen_descriptiva')
 
 class TasaAdmin(admin.ModelAdmin):
