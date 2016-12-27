@@ -51,10 +51,10 @@ class TasaAdmin(admin.ModelAdmin):
 	list_display = ('nombre_tasa','tipo','monto')
 
 class ProgramaAdmin(admin.ModelAdmin):
-	list_display = ('nombre_programa','titulo','descripcion')
+	list_display = ('nombre_programa','titulo','descripcion','imagenes_asociadas')
 
 class ProyectoAdmin(admin.ModelAdmin):
-	list_display = ('tipo_proyecto','titulo','descripcion')
+	list_display = ('tipo_proyecto','titulo','descripcion','imagenes_asociadas')
 
 class TipoProyectoAdmin(admin.ModelAdmin):
 	list_display=('tipo_proyecto',)
@@ -65,7 +65,7 @@ class DocumentoAdmin(admin.ModelAdmin):
 
 
 class HermanamientoAdmin(admin.ModelAdmin):
-	list_display = ('descripcion',)
+	list_display = ('descripcion','imagenes_asociadas')
 class ConcejoAdmin(admin.ModelAdmin):
 	
 	list_display=('nombre_alcalde', 'nombre_sindico', 'nombre_PRP', 'nombre_SRP', 'nombre_TRP', 'nombre_CRP', 'nombre_PRS', 'nombre_SRS', 'nombre_TRS', 'nombre_CRS',)

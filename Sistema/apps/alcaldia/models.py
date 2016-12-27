@@ -56,6 +56,9 @@ class Programa(models.Model):
 	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
 
+	def imagenes_asociadas(self):
+		return "\n".join([i.nombre_contenido for i in self.imagen.all()])
+
 	class Meta:
 		verbose_name='Programa'
 		verbose_name_plural='Programas'
@@ -75,6 +78,9 @@ class Proyecto(models.Model):
 	titulo = models.CharField(max_length=200)
 	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoProyecto)
+
+	def imagenes_asociadas(self):
+		return "\n".join([i.nombre_Contproyecto for i in self.imagen.all()])
 
 	class Meta:
 		verbose_name='Proyecto'
@@ -115,6 +121,9 @@ class Documento(models.Model):
 class Hermanamientos(models.Model):
 	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
+
+	def imagenes_asociadas(self):
+		return "\n".join([i.nombre_contenido for i in self.imagen.all()])
 
 	class Meta:
 		verbose_name='Hermanamiento'
