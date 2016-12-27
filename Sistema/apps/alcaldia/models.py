@@ -78,6 +78,7 @@ class Proyecto(models.Model):
 	titulo = models.CharField(max_length=200)
 	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoProyecto)
+	fecha  = models.DateField(null=True)
 
 	def imagenes_asociadas(self):
 		return "\n".join([i.nombre_Contproyecto for i in self.imagen.all()])
