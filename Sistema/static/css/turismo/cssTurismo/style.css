@@ -340,6 +340,13 @@ color: #242424 !important;
 .email {
 	padding-top: 15px;
 }
+
+contactos {
+	padding: 25px 0;
+	text-align: center;
+	width: 100%;
+	float: left;
+}
 footer {
 	padding: 25px 0;
 	text-align: center;

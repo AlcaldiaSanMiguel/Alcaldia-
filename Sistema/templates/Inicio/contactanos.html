@@ -86,49 +86,40 @@
             El Salvador<br>
           <div class="email"><i class="fa fa-at"></i>recepcionsanmigueltepezontes@gmail.com<br>
             <i class="fa fa-mobile"></i>2362-4800
-			<i class="fa fa-mobile"></i>2362-4802</div>
-			
+      <i class="fa fa-mobile"></i>2362-4802</div>
+      
           </p>
-		  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15510.42668493238!2d-89.02814320355648!3d13.620818050505765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f634bf7b98fbe65%3A0xeaec554dc56f5fa5!2sSan+Miguel+Tepezontes%2C+El+Salvador!5e0!3m2!1ses!2ses!4v1476652951547" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15510.42668493238!2d-89.02814320355648!3d13.620818050505765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f634bf7b98fbe65%3A0xeaec554dc56f5fa5!2sSan+Miguel+Tepezontes%2C+El+Salvador!5e0!3m2!1ses!2ses!4v1476652951547" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<footer style="background-color: #1C9792" >
+<div class="contact" id="contatosEmergencia" style="background-color: #1C9792">
   <div class="container">
     <div class="row">
-      <div class="col-md-4"> <span class="copyright"></span> </div>
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li style="font-size:22px; font-weight:900"><a href="index.html">Contactos de Emergencia</a> </li>
-        </ul>
+      <div class="col-md-12">
+        <div class="text-center">
+          <h3>Contactenos de Emergencia</h3>
+        </div>
       </div>
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li><span class="copyright"></span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<footer style="background-color: #1C9792" >
-  <div class="container">
-          <ul class="list-inline social-buttons">
+       <ul class="list-inline social-buttons">
             {% for contacto in contactos %}
             <li>
               <div class="email"><i></i>{{contacto.nombre_contacto}}
             <br>
               <i class="fa fa-mobile"></i>{{contacto.telefono}}
-  	          </div>
+              </div>
             </li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {% endfor %}
             <div class="row">
           </ul>
-</footer>
+    </div>
+  </div>
+</div>
+
+
 <script src="{% static "js/jquery.min.js" %}"></script> 
 <script src="{% static "js/bootstrap.min.js" %}"></script> 
 <script type="text/javascript" src="{% static "js/jquery.countTo.js" %}"></script> 
