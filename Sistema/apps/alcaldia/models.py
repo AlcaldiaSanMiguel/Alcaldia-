@@ -289,3 +289,29 @@ class DiscursoAlcalde(models.Model):
 		verbose_name_plural = 'Discursos del alcalde'
 	def __str__(self):
 		return '%s' %(self.discurso_alcalde)
+
+class Nomina(models.Model):
+	nombre_secretaria = models.CharField(max_length=255)
+	nombre_auditor = models.CharField(max_length=255)
+	nombre_contador = models.CharField(max_length=255)
+	nombre_info_publica = models.CharField(max_length=255)
+	nombre_UACI = models.CharField(max_length=255)
+	nombre_tesorero = models.CharField(max_length=255)
+	nombre_cuentas_corrientes = models.CharField(max_length=255)
+	nombre_estado_familiar = models.CharField(max_length=255)
+	nombre_medio_ambiente = models.CharField(max_length=255)
+	nombre_proyeccion = models.CharField(max_length=255)
+	nombre_atencion = models.CharField(max_length=255)
+	nombre_motorista = models.CharField(max_length=255)
+	nombre_ordenanza = models.CharField(max_length=255)
+	nombre_mantenimiento = models.CharField(max_length=255)
+	nombre_mantenimiento2 = models.CharField(max_length=255)
+	nombre_vigilante = models.CharField(max_length=255)
+	nombre_vigilante2 = models.CharField(max_length=255)
+	nombre_vigilante3 = models.CharField(max_length=255)
+
+	class Meta:
+		verbose_name='Nomina empleados'
+		verbose_name_plural = 'Nominas de empleados'
+	def __str__(self):
+		return '%s' %(self.nombre_secretaria)				

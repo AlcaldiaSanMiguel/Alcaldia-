@@ -44,7 +44,6 @@ urlpatterns = [
     url(r'^municipalidad/', municipalidad),
     url(r'^concejo/', concejo),
     url(r'^mensaje/', mensaje),
-    url(r'^estructura/', estructura),
     url(r'^nomina/', nomina),
 
 

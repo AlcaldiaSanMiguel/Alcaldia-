@@ -63,7 +63,8 @@ def Catastro(request):
 	return render(request, 'Proyectos/Catastro.html',{})
 
 def concejo(request):
-		return render(request, 'Estructura/concejo.html',{})
+	concejo = Concejo.objects.all()
+	return render(request, 'Estructura/concejo.html',{'concejos': concejo})
 
 def desechosSolidos(request):
 	desechos_list= Proyecto.objects.filter(tipo_proyecto = "6").order_by('-fecha')
@@ -192,7 +193,8 @@ def mensaje(request):
 
 
 def nomina(request):
-		return render(request, 'Transparencia/nomina.html',{})
+	nomina = Nomina.objects.all()
+	return render(request, 'Estructura/nomina.html',{'nominas': nomina})
 
 def noticias(request):
 

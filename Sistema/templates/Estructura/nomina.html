@@ -1,0 +1,135 @@
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+    Portal de Municipalidad
+{% endblock titulo %}
+
+
+{% block contenido %}
+{% block JS %}
+<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+{{block.super}} <!--Esto manda a llamar todos los script-->
+
+{% endblock JS %}
+
+{% block cuerpo %}
+
+    <!-- Header -->
+     <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Municipalidad</div>
+                <div class="intro-heading">Nomina Empleados</div>
+                
+            </div>
+        </div>
+    </header>
+
+
+   
+        
+               
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 align="center">Nomina de empleados</h2>
+                                <BR>
+								<BR>
+								{%for nomina in nominas%}	
+                                <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0; border-radius: 20px;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal; background:#FFE333;}
+.tg .tg-yw4l{vertical-align:top}
+.tg tr:hover{background: #BFC9CA;
+  transition: all 0.1s ease-in-out;}
+</style>
+<table class="tg" style=" margin: auto;">
+  <tr>
+    <th class="tg-yw4l">NOMBRE</th>
+    <th class="tg-yw4l">CARGO</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_secretaria}}</td>
+    <td class="tg-yw4l">SECRETARIA MUNICIPAL</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_auditor}}</td>
+    <td class="tg-yw4l">AUDITOR INTERNO</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_contador}}</td>
+    <td class="tg-yw4l">CONTADOR</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_info_publica}}</td>
+    <td class="tg-yw4l">OFICIAL ACCESO A LA INFORMACIÓN PÚBLICA</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_UACI}}</td>
+    <td class="tg-yw4l">JEFE UACI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_tesorero}}</td>
+    <td class="tg-yw4l">TESORERO MUNICIPAL</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_cuentas_corrientes}}</td>
+    <td class="tg-yw4l">JEFE CUENTAS CORRIENTES Y CATASTRO</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_estado_familiar}}</td>
+    <td class="tg-yw4l">JEFE REGISTRO ESTADO FAMILIAR</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_medio_ambiente}}</td>
+    <td class="tg-yw4l">JEFE MEDIO AMBIENTE Y GESTIÓN DE RIESGO</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_proyeccion}}</td>
+    <td class="tg-yw4l">JEFE  PROYECCIÓN SOCIAL Y GESTIÓN NACIONAL E INTERNACIONAL</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_atencion}}</td>
+    <td class="tg-yw4l">ATENCIÓN CIUDADANA</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_motorista}}</td>
+    <td class="tg-yw4l">MOTORISTA</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_ordenanza}}</td>
+    <td class="tg-yw4l">ORDENANZA</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_mantenimiento}}</td>
+    <td class="tg-yw4l">MANTENIMIENTO</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_mantenimiento2}}</td>
+    <td class="tg-yw4l">MANTENIMIENTO</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_vigilante}}</td>
+    <td class="tg-yw4l">VIGILANTE </td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">{{nomina.nombre_vigilante2}}</td>
+    <td class="tg-yw4l">VIGILANTE </td>
+  </tr>
+   <tr>
+    <td class="tg-yw4l">{{nomina.nombre_vigilante3}}</td>
+    <td class="tg-yw4l">VIGILANTE </td>
+  </tr>
+</table>
+{% endfor %}	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       
+{% endblock cuerpo %}
+    
+{%endblock%}
