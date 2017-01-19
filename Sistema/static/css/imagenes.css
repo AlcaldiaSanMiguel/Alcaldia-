@@ -12,6 +12,11 @@
       width: 750px;
       height: 350px;
     }
+    img.big{
+      width: 1000px;
+      height: 800px;
+    }
+
 
    a.big{
    	color: #FFFFFF;
@@ -69,7 +74,3 @@ text-align: center;
   border-radius: 5px;
 }
 
-img.big{
-	width: 1050px;
-  height: 975px;
-}

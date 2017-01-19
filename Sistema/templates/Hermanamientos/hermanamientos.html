@@ -1,54 +1,48 @@
 {% extends "Shared/shared.html" %}
 {% load staticfiles %}
-
 {% block contenido %}
-{{block.super}}
-<div class="call-to-action">
-  <div class="call-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-10">  
-       </div>
-       
-      </div>
+    {{block.super}}
+    <div class="call-to-action">
+        <div class="call-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-10">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     <!-- Page Content -->
     <div class="container">
         <div class="col-lg-12">
-                <h1 class="page-header">Hermanamientos</h1>
-            </div>
+            <h1 class="page-header">Hermanamientos</h1>
+        </div>
         {% for hermanamiento in hermanamientos %}
-
-        <!-- Page Header -->
-        <div class="row">
+            <!-- Page Header -->
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <h3>
+                    <small>{{ hermanamiento.descripcion }}</small>
+                    </h3>
+                    
+                </div>
+            </div>
+            <!-- /.row -->
             
-            <div class="col-lg-12">
-            	<h2>
-            		<small>{{ hermanamiento.descripcion }}</small>
-            	</h2>
-            	
+            <!-- Projects Row -->
+            <div class="row">
+                {% for imagen in hermanamiento.imagen.all %}
+                    <div class="col-md-6 portfolio-item">
+                        <a href="{% static imagen.imagen_contenido %}">
+                            <img class="img-responsive portafolio redondo mediana" src="{% static imagen.imagen_contenido %}" alt="">
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
-        </div>
-        <!-- /.row -->
-        
-
-        <!-- Projects Row -->
-        <div class="row">
-            {% for imagen in hermanamiento.imagen.all %}
-            <div class="col-md-6 portfolio-item">
-                <a href="{% static imagen.imagen_contenido %}">
-                    <img class="img-responsive portafolio redondo" src="{% static imagen.imagen_contenido %}" alt="">
-                </a>
-            </div>
-             {% endfor %}
-        </div>
-        <!-- /.row -->
-        <hr>
-       
-
+            <!-- /.row -->
+            <hr>
+            
         {% endfor %}
-
         <hr>
-{% endblock contenido %}
+    {% endblock contenido %}

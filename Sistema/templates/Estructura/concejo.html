@@ -1,102 +1,56 @@
 {% extends 'Shared/shared.html' %}
 {% load staticfiles %}
 {% block titulo %}
-    Portal de Municipalidad
+  Portal de Municipalidad
 {% endblock titulo %}
-
-
 {% block contenido %}
-{% block JS %}
-<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
-{{block.super}} <!--Esto manda a llamar todos los script-->
-
-{% endblock JS %}
-
-{% block cuerpo %}
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Municipalidad</div>
-                <div class="intro-heading">Consejo Municipal</div>
-
-            </div>
-        </div>
-    </header>
-                <div class="container">
-                    <div class="row">
-                        <div>
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-								
-                                <h2 align="center">Concejo Municipal</h2>
-
-                                <br>
-                                <h3 align="center">Miembros Periodo 2015-2018</h3>
-								
-								<br>
-								{%for concejo in concejos%}	
-								<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0; border-radius: 20px;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal; background:#FFE333;}
-.tg .tg-yw4l{vertical-align:top}
-.tg tr:hover{background: #BFC9CA;
-  transition: all 0.1s ease-in-out;}
-</style>
-<table class="tg" style=" margin: auto;">
-  <tr>
-    <th class="tg-yw4l">NOMBRE</th>
-    <th class="tg-yw4l">CARGO</th>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_alcalde}}</td>
-    <td class="tg-yw4l">ALCALDE</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_sindico}}</td>
-    <td class="tg-yw4l">SINDICO</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_PRP}}</td>
-    <td class="tg-yw4l">PRIMER REGIDOR PROPIETARIO</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_SRP}}</td>
-    <td class="tg-yw4l">SEGUNDO REGIDOR PROPIETARIO</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_TRP}}</td>
-    <td class="tg-yw4l">TERCER REGIDOR PROPIETARIO</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_CRP}}</td>
-    <td class="tg-yw4l">CUARTO REGIDOR PROPIETARIO</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_PRS}}</td>
-    <td class="tg-yw4l">PRIMER REGIDOR SUPLENTE</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_SRS}}</td>
-    <td class="tg-yw4l">SEGUNDO REGIDOR SUPLENTE</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_TRS}}</td>
-    <td class="tg-yw4l">TERCER REGIDOR SUPLENTE</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">{{concejo.nombre_CRS}}</td>
-    <td class="tg-yw4l">CUARTO REGIDOR SUPLENTE</td>
-  </tr>
-					 {% endfor %}	
-					
-                </div>
-            </div>
-        </div>
+  {% block JS %}
+    <script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+    {{block.super}} <!--Esto manda a llamar todos los script-->
+  {% endblock JS %}
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Municipalidad</div>
+        <div class="intro-heading">Consejo Municipal</div>
+      </div>
     </div>
-
-   {% endblock cuerpo %}
-
-{%endblock%}
+  </header>
+  <div class="container">
+    <div class="row">
+      <div>
+        <div class="modal-body">
+          <h2 align="center">Concejo Municipal</h2>
+          <br>
+          <h3 align="center">Miembros Periodo 2015-2018</h3>
+          <br>
+          <style type="text/css">
+          .tg  {border-collapse:collapse;border-spacing:0; border-radius: 20px;}
+          .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+          .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal; background:#FFE333;}
+          .tg .tg-yw4l{vertical-align:top}
+          .tg tr:hover{background: #BFC9CA;
+          transition: all 0.1s ease-in-out;}
+          </style>
+          <table class="tg" style=" margin: auto;">
+            <tr>
+              <th class="tg-yw4l">NOMBRE</th>
+              <th class="tg-yw4l">CARGO</th>
+            </tr>
+            {% for persona in concejos %}
+              <tr>
+                <td class="tg-yw4l">{{persona.nombre_persona}}</td>
+                <td class="tg-yw4l">{{persona.rol}}</td>
+              </tr>
+              
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endblock%}
+  {% block enlace %}
+    <a href="/municipalidad">municipalidad</a>
+  {% endblock enlace %}

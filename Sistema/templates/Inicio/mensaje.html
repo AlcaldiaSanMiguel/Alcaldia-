@@ -3,65 +3,60 @@
 {% block titulo %}
     Portal de Municipalidad
 {% endblock titulo %}
-
-
 {% block contenido %}
-{% block JS %}
-<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
-{{block.super}} <!--Esto manda a llamar todos los script-->
-
-{% endblock JS %}
-
-{% block cuerpo %}
-
-    <!-- Header -->
-     <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Municipalidad</div>
-                <div class="intro-heading">Mensaje</div>
-                
-            </div>
-        </div>
-    </header>
-
-
-    <!-- Team Section -->
-    <section id="tasas">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Mensaje del Alcalde</h2>
-                    <h3 class="section-subheading text-muted">San Miguel Tepezontes</h3>
+    {% block JS %}
+        <script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+        {{block.super}} <!--Esto manda a llamar todos los script-->
+    {% endblock JS %}
+    {% block cuerpo %}
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Municipalidad</div>
+                    <div class="intro-heading">Mensaje</div>
+                    
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="timeline">
-                        <li>
-                            <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{% static "img/Index/Municipalidad/escudo.PNG" %}" alt="">
-                            </div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4>Discurso</h4>
-                                    
+        </header>
+        <!-- Team Section -->
+        <section id="tasas">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Mensaje del Alcalde</h2>
+                        <h3 class="section-subheading text-muted">San Miguel Tepezontes</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="{% static "img/Index/Municipalidad/escudo.PNG" %}" alt="">
                                 </div>
-                                <div class="timeline-body">
-								 {% for mensaje in mensajes %}
-                                    <p class="text-muted">{{ mensaje.discurso_alcalde }}</p>
-									 {% endfor %}
-<br>
-
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>Discurso</h4>
+                                        
+                                    </div>
+                                    <div class="timeline-body">
+                                        {% for mensaje in mensajes %}
+                                            <p class="text-muted">{{ mensaje.discurso_alcalde }}</p>
+                                        {% endfor %}
+                                        <br>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        
-                    </ul>
+                            </li>
+                            
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-   {% endblock cuerpo %}
+        </section>
+    {% endblock cuerpo %}
     
-{%endblock%}
+    {%endblock%}
+    {% block enlace %}
+        <a href="/municipalidad">municipalidad</a>
+    {% endblock enlace %}

@@ -1,37 +1,30 @@
 {% extends 'Shared/shared.html' %}
 {% load staticfiles %}
 {% block titulo %}
-   Estructura Orgánica
+  Estructura Orgánica
 {% endblock titulo %}
-
-
 {% block contenido %}
-
-{% block JS %}
-{{block.super}}
-<script src="{% static "js/agency.js" %}"></script>
-{% endblock JS %}
-
-{% block cuerpo %}
-<header  style="background-image: url('{%static "img/Servicios/fondoServicios.JPG"%}');">
-          <div class="container">
-
-            <div class="intro-text">
-                <!--<div class="intro-lead-in"></div>-->
-                <div class="intro-heading" style="text-shadow:3px 3px #000;">Estructura Orgánica</div>
-                <a href="#organigrama" class="page-scroll btn btn-xl">Cuentame más</a>
-
-            </div>
-        </div>
-</header>
-
-<section>
-        	
-	<div>
-        <img src="{% static "img/organigrama.jpg" %}" class="big">
-	</div>
-</section>
-
-{% endblock cuerpo %}
-    
-{%endblock%}
+  {% block JS %}
+    {{block.super}}
+    <script src="{% static "js/agency.js" %}"></script>
+  {% endblock JS %}
+  <header  style="background-image: url('{%static "img/Index/Transparencia/fondoTransparencia.JPG"%}');">
+    <div class="container">
+      <div class="intro-text">
+        <!--<div class="intro-lead-in"></div>-->
+        <div class="intro-heading" style="text-shadow:3px 3px #000;">Estructura Orgánica</div>
+        <a href="#organigrama" class="page-scroll btn btn-xl">Cuentame más</a>
+      </div>
+    </div>
+  </header>
+  <section id="organigrama">
+    <div class="container">
+      <img class="big" src="{% static "img/Index/Transparencia/organigrama/Picture1.png" %}" class="big">
+    </div>
+  </section>
+  
+  
+  {%endblock%}
+  {% block enlace %}
+    <a href="/transparencia">Transparencia</a>
+  {% endblock enlace %}

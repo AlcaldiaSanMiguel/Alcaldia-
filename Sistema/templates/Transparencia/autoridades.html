@@ -1,37 +1,30 @@
 {% extends 'Shared/shared.html' %}
 {% load staticfiles %}
 {% block titulo %}
-   Autoridades Municipales
+  Autoridades Municipales
 {% endblock titulo %}
-
-
 {% block contenido %}
-
-{% block JS %}
-{{block.super}}
-<script src="{% static "js/agency.js" %}"></script>
-{% endblock JS %}
-
-{% block cuerpo %}
-<header  style="background-image: url('{%static "img/Servicios/fondoServicios.JPG"%}');">
-          <div class="container">
-
-            <div class="intro-text">
-                <!--<div class="intro-lead-in"></div>-->
-                <div class="intro-heading" style="text-shadow:3px 3px #000;">Autoridades Municipales</div>
-                <a href="#organigrama" class="page-scroll btn btn-xl">Cuentame más</a>
-
-            </div>
+  {% block JS %}
+    {{block.super}}
+    <script src="{% static "js/agency.js" %}"></script>
+  {% endblock JS %}
+  {% block cuerpo %}
+    <header  style="background-image: url('{%static "img/Index/Transparencia/fondoTransparencia.JPG"%}');">
+      <div class="container">
+        <div class="intro-text">
+          <!--<div class="intro-lead-in"></div>-->
+          <div class="intro-heading" style="text-shadow:3px 3px #000;">Autoridades Municipales</div>
+          <a href="#autoridades" class="page-scroll btn btn-xl">Cuentame más</a>
         </div>
-</header>
-
-<section>
-        	
-	<div>
-        <img src="{% static "img/autoridades.jpg" %}">
-	</div>
-</section>
-
-{% endblock cuerpo %}
+      </div>
+    </header>
     
-{%endblock%}
+    <div id="autoridades" class="container">
+      <img class="big" src="{% static "img/Index/Transparencia/autoridades/Picture2.png" %}">
+    </div>
+  {% endblock cuerpo %}
+  
+  {%endblock%}
+  {% block enlace %}
+    <a href="/transparencia">Transparencia</a>
+  {% endblock enlace %}

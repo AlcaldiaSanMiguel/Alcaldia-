@@ -10,7 +10,7 @@ def autoridades(request):
 		return render(request, 'Transparencia/autoridades.html',{})
 
 def alumbrado(request):
-	alumbrado_list = Proyecto.objects.filter(tipo_proyecto = "3").order_by('-fecha')
+	alumbrado_list = Proyecto.objects.filter(tipo_proyecto = "4").order_by('-fecha')
 	paginador = Paginator(alumbrado_list, 3)
 	try:
 		page = int(request.GET.get("page",'1'))
@@ -49,11 +49,9 @@ def contacto(request):
 	contacto = ContactosEmergencia.objects.all()
 	if request.method == "POST":
 		mensajes = Mensaje()
-
 		mensajes.nombre = request.POST['usuario']
 		mensajes.email = request.POST['correo']
 		mensajes.mensaje =request.POST['peticion']
-
 		mensajes.save()
 		return HttpResponseRedirect('/contactanos')
 	return render(request,'Inicio/contactanos.html',{'contactos':contacto})
@@ -67,7 +65,7 @@ def concejo(request):
 	return render(request, 'Estructura/concejo.html',{'concejos': concejo})
 
 def desechosSolidos(request):
-	desechos_list= Proyecto.objects.filter(tipo_proyecto = "6").order_by('-fecha')
+	desechos_list= Proyecto.objects.filter(tipo_proyecto = "5").order_by('-fecha')
 	paginador = Paginator(desechos_list, 3)
 	try:
 		page = int(request.GET.get("page",'1'))
@@ -156,7 +154,7 @@ def index(request):
 
 def infraestructuraGR(request):
 	infraestructuraGR_list = Proyecto.objects.filter(tipo_proyecto = "2").order_by('-fecha')
-	paginador = Paginator(infraestructuraGR_list, 5)
+	paginador = Paginator(infraestructuraGR_list, 3)
 	try:
 		page = int(request.GET.get("page",'1'))
 	except:
@@ -169,7 +167,7 @@ def infraestructuraGR(request):
 
 
 def mantenimientoCalles(request):
-	mantenimiento_list = Proyecto.objects.filter(tipo_proyecto = "1").order_by('-fecha')
+	mantenimiento_list = Proyecto.objects.filter(tipo_proyecto = "3").order_by('-fecha')
 	paginador = Paginator(mantenimiento_list, 3)
 	try:
 		page = int(request.GET.get("page",'1'))
@@ -180,8 +178,6 @@ def mantenimientoCalles(request):
 	except(EmptyPage, InvalidPage):
 		mantenimiento = paginador.page(paginador.num_pages)
 	return render(request, 'Proyectos/mantenimientoCalles.html',{'mantenimientos':mantenimiento})
-
-
 
 def municipalidad(request):
 		return render(request, 'Municipalidad/municipalidad.html',{})
@@ -229,7 +225,7 @@ def programas(request):
 
 def proyectoSocial(request):
 	proyectosocial_list = Proyecto.objects.filter(tipo_proyecto = "1").order_by('-fecha')
-	paginador = Paginator(proyectosocial_list, 5)
+	paginador = Paginator(proyectosocial_list, 3)
 	try:
 		page = int(request.GET.get("page",'1'))
 	except:
@@ -269,10 +265,8 @@ def turismo_select(request, id_turismo):
 
 
 def TasasMunicipales(request):
-	impuesto = Tasas.objects.filter(tipo_id = "1")
-	servicio = Tasas.objects.filter(tipo_id = "2")
-	interes = Tasas.objects.filter(tipo_id = "3")
-	return render(request,'Tasas/TasasMunicipales.html',{'impuestos':impuesto,'servicios':servicio,'intereses':interes})
+	tipos = TipoTasa.objects.all()
+	return render(request,'Tasas/TasasMunicipales.html',{'tipos':tipos})
 
 
 

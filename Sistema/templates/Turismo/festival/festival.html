@@ -1,100 +1,87 @@
 {% extends 'Shared/shared.html' %}
 {% load staticfiles %}
 {% block titulo %}
-    Festival Gastronómico- Alcaldia de San Miguel Tepezontes
+  Festival Gastronómico- Alcaldia de San Miguel Tepezontes
 {% endblock titulo %}
-
 {% block contenido %}
-{% block JS %}
-{{block.super}} <!--Esto manda a llamar todos los script-->
-
-
-{% endblock JS %}
-
-<div class="call-to-action">
-  <div class="call-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-10">  
-       </div>
-       
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="call-to-action">
-  <div class="call-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-10">
-         
-            <h1>Festival Gastronómico de San Miguel Tepezontes</h1>    
-       </div>
-       
-      </div>
-    </div>
-  </div>
-</div>
-{% if festivales %}
-{% for festival in festivales %}
-<div id="tur1" class="call-to-action">
-  <div class="call-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-10">
-          <div class="subscribe-text">
-             <h3>{{festival.nombre}}</h3>
-      
-      <p style="text-align:justify;">{{festival.descripcion}}</p>
-      <a class="btn btn-danger" href="{% url 'alcaldia:detalle_festival' festival.id %}">Ver galeria <span class="glyphicon glyphicon-chevron-right"></span></a>
-    
-      </div>
-        </div>
-        <div class="col-md-4 text-center"> 
-      <div class="counter-item text-center" >
-   
-            <img src="{% static festival.imagen %}" alt=""  width="400" height="200">
+  {% block JS %}
+    {{block.super}} <!--Esto manda a llamar todos los script-->
+  {% endblock JS %}
+  <div class="call-to-action">
+    <div class="call-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-10">
           </div>
-    </div>
-
+          
+        </div>
       </div>
     </div>
   </div>
-</div>
-{% endfor %}
-
-<div class="row text-center" style="background-color:#1c121f">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    
-                    {% if festivales.has_previous %}
-                    <li><a href="?page={{ festivales.previous_page_number }}&#festivales">Anterior</a></li>
-                    {% endif %}
-
-                    {% for pg in festivales.paginator.page_range %}
-                    {% if festivales.number == pg %}
-                    <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
-                    {% else %}
-                    <li><a href="?page={{ pg }}&#festivales">{{ pg }}</a></li>
-                    {% endif %}
-                    {% endfor%}
-                    {% if festivales.has_next %}
-                    <li><a href="?page={{ festivales.next_page_number }}&#festivales">Siguiente</a></li>
-                    {% endif %}
-
-
-                    
-                    
-                </ul>
-            </div>
+  <div class="call-to-action">
+    <div class="call-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-10">
+            
+            <h1>Festival Gastronómico de San Miguel Tepezontes</h1>
+          </div>
+          
         </div>
-
-        {% else %}
-     <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>           
-    {% endif %}
-<script type="text/javascript" src="{% static "js/jquery.countTo.js" %}"></script> 
-<script type="text/javascript" src="{% static "js/jquery.waypoints.min.js" %}"></script> 
+      </div>
+    </div>
+  </div>
+  {% if festivales %}
+    {% for festival in festivales %}
+      <div id="tur1" class="call-to-action">
+        <div class="call-overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-sm-10">
+                <div class="subscribe-text">
+                  <h3>{{festival.nombre}}</h3>
+                  
+                  <p style="text-align:justify;">{{festival.descripcion}}</p>
+                  <a class="btn btn-danger" href="{% url 'alcaldia:detalle_festival' festival.id %}">Ver galeria <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  
+                </div>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="counter-item text-center" >
+                  
+                  <img src="{% static festival.imagen %}" alt=""  width="400" height="200">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="row text-center" style="background-color:#1c121f">
+      <div class="col-lg-12">
+        <ul class="pagination">
+          
+          {% if festivales.has_previous %}
+            <li><a href="?page={{ festivales.previous_page_number }}&#festivales">Anterior</a></li>
+          {% endif %}
+          {% for pg in festivales.paginator.page_range %}
+            {% if festivales.number == pg %}
+              <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+            {% else %}
+              <li><a href="?page={{ pg }}&#festivales">{{ pg }}</a></li>
+            {% endif %}
+          {% endfor%}
+          {% if festivales.has_next %}
+            <li><a href="?page={{ festivales.next_page_number }}&#festivales">Siguiente</a></li>
+          {% endif %}
+          
+          
+        </ul>
+      </div>
+    </div>
+  {% else %}
+    <h3 class="text-center">Espera por nuestro contenido, vuelve pronto!</h3>
+  {% endif %}
+  <script type="text/javascript" src="{% static "js/jquery.countTo.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/jquery.waypoints.min.js" %}"></script>
 {% endblock contenido %}

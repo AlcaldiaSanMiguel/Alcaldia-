@@ -3,45 +3,34 @@
 {% block titulo %}
     Portal de Municipalidad
 {% endblock titulo %}
-
-
 {% block contenido %}
-{% block JS %}
-<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
-{{block.super}} <!--Esto manda a llamar todos los script-->
-
-{% endblock JS %}
-
-{% block cuerpo %}
-
-    <!-- Header -->
-     <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">Municipalidad</div>
-                <div class="intro-heading">Estructura</div>
-                
+    {% block JS %}
+        <script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+        {{block.super}} <!--Esto manda a llamar todos los script-->
+    {% endblock JS %}
+    {% block cuerpo %}
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Municipalidad</div>
+                    <div class="intro-heading">Estructura</div>
+                </div>
             </div>
-        </div>
-    </header>
-
-
-   
-        
-               
-                <div class="container">
-                    <div class="row">
-                        <div>
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 align="center">Estructura Organizativa</h2>
-                                
-                                <img src="{% static "img/Municipalidad/estructura/estructura.png" %}" width="100%"/>
-                            </div>
-                        </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2 align="center">Estructura Organizativa</h2>
+                        <img src="{% static "img/Municipalidad/estructura/estructura.png" %}" width="100%"/>
                     </div>
                 </div>
-       
-{% endblock cuerpo %}
-    
-{%endblock%}
+            </div>
+        </div>
+    {% endblock cuerpo %}
+    {%endblock%}
+    {% block enlace %}
+        <a href="/municipalidad">municipalidad</a>
+    {% endblock enlace %}

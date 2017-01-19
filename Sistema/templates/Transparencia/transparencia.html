@@ -3,72 +3,62 @@
 {% block titulo %}
     Portal de Transparencia
 {% endblock titulo %}
-
-
 {% block contenido %}
-{% block JS %}
-<script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
-{{block.super}} <!--Esto manda a llamar todos los script-->
-
-{% endblock JS %}
-
-{% block cuerpo %}
- <!-- Header -->
-    <header style="background-image: url('{%static "img/Index/Transparencia/fondoTransparencia.JPG" %}');">
-        <div class="container">
-
-            <div class="intro-text">
-                <!--<div class="intro-lead-in"></div>-->
-                <div class="intro-heading" style="text-shadow:3px 3px #000;">Portal de transparencia</div>
-                <a href="#transparencia" class="page-scroll btn btn-xl">Cuentame más</a>
-
-            </div>
-        </div>
-    </header>
-
-    <!-- transparencia Section -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Portal de transparencia</h2>
-                    <h3 class="section-subheading text-muted">Para robustecer todos los actos que desarrolla la Alcaldía Municipal de San Miguel Tepezontes, es necesario transparentar los mismos, para ello se creó la Unidad de acceso a la Información pública de esta municipalidad para colgar información de los acontecimientos que lleva a cabo la misma en el portal de acceso a la información pública. Por consiguiente se publica información sobre la administración municipal.</h3>
+    {% block JS %}
+        <script src="{% static "js/agency.min.js" %}"></script> <!--Script de funcionalidad-->
+        {{block.super}} <!--Esto manda a llamar todos los script-->
+    {% endblock JS %}
+    {% block cuerpo %}
+        <!-- Header -->
+        <header style="background-image: url('{%static "img/Index/Transparencia/fondoTransparencia.JPG" %}');">
+            <div class="container">
+                <div class="intro-text">
+                    <!--<div class="intro-lead-in"></div>-->
+                    <div class="intro-heading" style="text-shadow:3px 3px #000;">Portal de transparencia</div>
+                    <a href="#transparencia" class="page-scroll btn btn-xl">Cuentame más</a>
                 </div>
             </div>
-            <div class="row text-center">
-            	<div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <a href="/organigrama"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
-                    </span>
-                    <h4 class="service-heading">Estructura Orgánica</h4>
-                    <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+        </header>
+        <!-- transparencia Section -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Portal de transparencia</h2>
+                        <h3 class="section-subheading text-muted">Para robustecer todos los actos que desarrolla la Alcaldía Municipal de San Miguel Tepezontes, es necesario transparentar los mismos, para ello se creó la Unidad de acceso a la Información pública de esta municipalidad para colgar información de los acontecimientos que lleva a cabo la misma en el portal de acceso a la información pública. Por consiguiente se publica información sobre la administración municipal.</h3>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <a href="/autoridades"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
-                    </span>
-                    <h4 class="service-heading">Autoridades municipales</h4>
-                    <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="/organigrama"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
+                        </span>
+                        <h4 class="service-heading">Estructura Orgánica</h4>
+                        <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <a href="/autoridades"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
+                        </span>
+                        <h4 class="service-heading">Autoridades municipales</h4>
+                        <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+                    </div>
+                    
+                    {% for documento in documentos %}
+                        <div class="col-md-4">
+                            <span class="fa-stack fa-4x">
+                                <a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
+                            </span>
+                            <h4 class="service-heading">ordenanza</h4>
+                            <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
+                        </div>
+                    {% endfor %}
+                    
                 </div>
-                
-                {% for documento in documentos %}
-                 <div class="col-md-4">
-                       <span class="fa-stack fa-4x">
-                       <a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                           <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
-                       </span>
-                       <h4 class="service-heading">ordenanza</h4>
-                       <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios del portal de transparencia en una sola seccion, para que los ciudadanos tengan una mayor facilidad de comunicacion con la alcaldia.</p>
-                </div>
-                  {% endfor %}
-
-                
             </div>
-        </div>
-    </section>
-
+        </section>
     {% endblock cuerpo %}
-
-{%endblock%}
+    {%endblock%}

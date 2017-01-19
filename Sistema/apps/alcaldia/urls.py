@@ -7,24 +7,14 @@ from apps.alcaldia.views import *
 urlpatterns = [
    url(r'^$', index),
 
-
-
-
-
     url(r'^servicios/', servicios),
     url(r'^mantenimientoCalles/', mantenimientoCalles),
     url(r'^alumbrado/', alumbrado),
-    #URLS noticias
     url(r'^noticias/$', noticias, name='noticias'),
     url(r'^noticias/detalle/(?P<id_noticia>\d+)/$', noticia_select, name='detalle_noticia'),
     url(r'^desechosSolidos/', desechosSolidos),
-    #fin URLS noticias
-
-    #URLS programas
     url(r'^programas/', programas),
     url(r'^hermanamientos/', hermanamientos),
-    #fin URLS programas
-
     url(r'^contactanos/', contacto),
     url(r'^comida/$', comida, name='comida'),
     url(r'^comida/detalle_comida/(?P<id_comida>\d+)/$', comida_select, name='detalle_comida'),

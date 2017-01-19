@@ -1,89 +1,54 @@
 {% extends 'Shared/shared.html' %}
 {% load staticfiles %}
 {% block titulo %}
-    Tasas Municipales
+  Tasas Municipales
 {% endblock titulo %}
-
-
 {% block contenido %}
-{% block JS %}
-{{block.super}}
-<script src="{% static "js/agency.js" %}"></script>
-{% endblock JS %}
-
+  {% block JS %}
+    {{block.super}}
+    <script src="{% static "js/agency.js" %}"></script>
+  {% endblock JS %}
   {% block cuerpo %}
-
-  <header  style="background-image: url('{%static "img/Index/Cabeceras/tasasMunicipales.jpg"%}');">
-            <div class="container">
-
-              <div class="intro-text">
-                  <div class="intro-lead-in">Enterate!</div>
-                  <div class="intro-heading" style="text-shadow:3px 3px #000;">Tasas Municipales</div>
-                  <a href="TasasMunicipales" class="page-scroll btn btn-xl">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Sigue leyendo...</a>
-              </div>
+    <header  style="background-image: url('{%static "img/Index/Cabeceras/tasasMunicipales.JPG"%}');">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">Enterate!</div>
+          <div class="intro-heading" style="text-shadow:3px 3px #000;">Tasas Municipales</div>
+          <a href="TasasMunicipales" class="page-scroll btn btn-xl">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Sigue leyendo...</a>
           </div>
-  </header>
-
-  <div class="fondo">
-  <div class="container" >
-
-              <div class="Titulo">
-                <h1>Tasas Municipales</h1>
-              </div>
-
-          <div class="row">
-          <div class="col-md-12">
-
-
-          <table class="table table-striped table-hover">
-            <thead id="titulo1">
-               <td>IMPUESTOS O TRIBUTOS MUNICIPALES</td>
-               <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>MONTO</td>
-            </thead>
-            {% for impuesto in impuestos %}
-            <tr>
-              <td>{{impuesto.nombre_tasa}}</td>
-              <td>{{impuesto.monto}}</td>
-            </tr>
-            <tr></tr>
-            {% endfor %}
-
-
-
-              <thead id="titulo1"><td> TASAS DE SERVICIOS PUBLICOS</td><td></td></thead>
-              {% for servicio in servicios %}
-            <tr>
-              <td>{{servicio.nombre_tasa}}</td>
-              <td>{{servicio.monto}}</td>
-            </tr>
-            <tr></tr>
-            {% endfor %}
-                <br>
-
-
-
-              <thead id="titulo1"><td>MULTA E INTERESES POR MORA</td><td></td></thead>
-              {% for interes in intereses %}
-            <tr>
-              <td>{{interes.nombre_tasa}}</td>
-              <td>{{interes.monto}}</td>
-            </tr>
-            <tr></tr>
-            {% endfor %}
-
-
-          </table>
-          </div>
-
-      <footer>
-          <div class="final">
-          <p>Si tiene consultas o dudas sobre alguna tasa municipal contactenos. <a href="/contactanos">Dar click aqui para contactarnos</a></p>
         </div>
-        </footer>
+      </header>
+      <div class="fondo">
+        <div class="container" >
+          <div class="Titulo">
+            <h1>Tasas Municipales</h1>
           </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped table-hover">
+                {% for tipo in tipos %}
+                  <thead id="titulo1">
+                    <td>{{ tipo.nombre_tipo }}</td>
+                    <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>MONTO</td>
+                  </thead>
+                  {% for tasa in tipo.tasas_set.all %}
+                    <tr>
+                      <td>{{tasa.nombre_tasa}}</td>
+                      <td>{{tasa.monto}}</td>
+                    </tr>
+                  <tr></tr>
+                {% endfor %}
+              {% endfor %}
+            </table>
+          </div>
+          <footer>
+            <div class="final">
+              <p>Si tiene consultas o dudas sobre alguna tasa municipal contactenos. <a href="/contactanos">Dar click aqui para contactarnos</a></p>
+            </div>
+          </footer>
+        </div>
         </div>  <!-- termina el contenedor -->
         </div> <!-- termina el fondo -->
-
-  {% endblock cuerpo %}
-{% endblock contenido %}
+      {% endblock cuerpo %}
+    {% endblock contenido %}

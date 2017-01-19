@@ -1,251 +1,230 @@
-  {% extends 'Shared/shared.html' %}
-  {% load staticfiles %}
-  {% block titulo %}
-      Inicio
-  {% endblock titulo %}
-
-  {% block contenido %}
-
-          {% block cuerpo %}
-          <header>
-              <div class="container">
-                  <div class="intro-text">
-                      <div class="intro-lead-in" style="text-shadow:5px 5px #000;">Bienvenidos a nuestro municipio!</div>
-                      <div class="intro-heading" style="text-shadow:5px 5px #000;">Es un placer que nos visite</div>
-                      <a href="#services" class="page-scroll btn btn-xl" style="text-shadow:1px 1px #000;">Cuentame más</a>
+{% extends 'Shared/shared.html' %}
+{% load staticfiles %}
+{% block titulo %}
+  Inicio
+{% endblock titulo %}
+{% block contenido %}
+  {% block cuerpo %}
+    <header>
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in" style="text-shadow:5px 5px #000;">Bienvenidos a nuestro municipio!</div>
+          <div class="intro-heading" style="text-shadow:5px 5px #000;">Es un placer que nos visite</div>
+          <a href="#services" class="page-scroll btn btn-xl" style="text-shadow:1px 1px #000;">Cuentame más</a>
+        </div>
+      </div>
+    </header>
+    {% block Servicios %}
+      <!-- Services Section -->
+      <section id="servicios">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading">Servicios</h2>
+              <p><h3 class="section-subheading text-muted">Servicios que la alcaldía de San Miguel Tepezontes tiene para ti.</h3></p>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="/municipalidad"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa fa-university fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Municipalidad</h4>
+              <p class="text-muted">Aca encontraras el mensaje de nuestro alcalde, el concejo municipal asi como tambien la nomina de empleados</p>
+            </div>
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="/transparencia"> <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-search fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Portal de transparencia</h4>
+              <p class="text-muted">Conoce nuestra estructura organica, autoridades municipales y ordenanza</p>
+            </div>
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="/noticias"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-book fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Noticias y eventos</h4>
+              <p class="text-muted">Enterate de todas las noticias y eventos importantes en el municipio de San Miguel Tepezontes</p>
+            </div>
+            {%for documento in documentos%}
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Registro del estado familiar</h4>
+              <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios de la municipalidad en una sola sección.</p>
+            </div>
+            {%endfor%}
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="/programas"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-check fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Programas</h4>
+              <p class="text-muted">En este espacio se encuentran todos los programas recientemente implementados en el municipio de San Miguel tepezontes</p>
+            </div>
+            <div class="col-md-2">
+              <span class="fa-stack fa-4x">
+                <a href="/hermanamientos"><i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-user fa-stack-1x fa-inverse"></i></a>
+              </span>
+              <h4 class="service-heading">Hermanamientos</h4>
+              <p class="text-muted">Aca encontraras todo al respecto sobre la firma de los hermanamientos con distintas municipalidades cercanas a San Miguel Tepezones</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endblock Servicios %}
+    {% block Proyectos %}
+      <!-- Portfolio Grid Section -->
+      <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading">Proyectos</h2>
+              <h3 class="section-subheading text-muted">La alcaldía de San Miguel Tepezontes pone a tu disposición el desarrollo de los siguientes proyectos.</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/proyectoSocial" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
                   </div>
+                </div>
+                <img src="{% static "img/Index/Proyectos/proyectoSocial.jpg" %}"  class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Proyectos sociales</h4>
+                <p class="text-muted">La alcaldía de San Miguel Tepezontes ejecuta diversos proyectos sociales para el beneficio de sus habitantes, entra y conocelos</p>
               </div>
-          </header>
-              {% block Servicios %}
-                  <!-- Services Section -->
-                          <section id="servicios">
-                              <div class="container">
-                                  <div class="row">
-                                      <div class="col-lg-12 text-center">
-                                          <h2 class="section-heading">Servicios</h2>
-                                          <p><h3 class="section-subheading text-muted">Servicios que la alcaldia de San Miguel Tepezontes tiene para ti.</h3></p>
-                                      </div>
-                                  </div>
-                                  <div class="row text-center">
-                                      <div class="col-md-2">
-                                              <span class="fa-stack fa-4x">
-                                                  <a href="/municipalidad"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                                  <i class="fa fa fa-university fa-stack-1x fa-inverse"></i></a>
-                                              </span>
-                                              <h4 class="service-heading">Municipalidad</h4>
-                                              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                                          </div>
-                                      <div class="col-md-2">
-                                          <span class="fa-stack fa-4x">
-                                             <a href="/transparencia"> <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                              <i class="fa fa-search fa-stack-1x fa-inverse"></i></a>
-                                          </span>
-                                          <h4 class="service-heading">Portal de transparencia</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <span class="fa-stack fa-4x">
-                                            <a href="/noticias"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                              <i class="fa fa-book fa-stack-1x fa-inverse"></i></a>
-                                          </span>
-                                          <h4 class="service-heading">Noticias y eventos</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                                      </div>
-                                      {%for documento in documentos%}
-                                       <div class="col-md-2">
-
-                                             <span class="fa-stack fa-4x">
-
-                                               <a href="{% static documento.archivo %}"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-
-                                                 <i class="fa fa fa-home fa-stack-1x fa-inverse"></i></a>
-                                             </span>
-                                             <h4 class="service-heading">Registro del estador familiar</h4>
-                                             <p class="text-muted">Este espacio esta hecho con el fin de poder agrupar todos los servicios de la municipalidad en una sola seccion.</p>
-
-                                      </div>
-                                        {%endfor%}
-
-                                        <div class="col-md-2">
-                                          <span class="fa-stack fa-4x">
-                                            <a href="/programas"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                              <i class="fa fa-cogs fa-stack-1x fa-inverse"></i></a>
-                                          </span>
-                                          <h4 class="service-heading">Programas</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <span class="fa-stack fa-4x">
-                                            <a href="/hermanamientos"><i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                              <i class="fa fa-check fa-stack-1x fa-inverse"></i></a>
-                                          </span>
-                                          <h4 class="service-heading">Hermanamientos</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                                      </div>
-
-
-                                  </div>
-                              </div>
-                          </section>
-              {% endblock Servicios %}
-
-
-                      {% block Proyectos %}
-                          <!-- Portfolio Grid Section -->
-                      <section id="portfolio" class="bg-light-gray">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-lg-12 text-center">
-                                      <h2 class="section-heading">Proyectos</h2>
-                                      <h3 class="section-subheading text-muted">La alcaldia de San Miguel Tepezontes pone a tu disposicion el desarrollo de los siguientes proyectos.</h3>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/proyectoSocial" class="portfolio-link" data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{% static "img/Index/Proyectos/proyectoSocial.jpg" %}"  class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Proyectos Sociales</h4>
-                                          <p class="text-muted">Lorem ipsum dolor sit</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/infraestructuraGR" class="portfolio-link"  data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{%static "img/Index/Proyectos/Infraestructura.JPG"%}"  class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Infraestructura y gestion de riesgos</h4>
-                                          <!--<p class="text-muted">Lorem ipsum dolor sit</p>-->
-                                      </div>
-                                  </div>
-                                 <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/desechosSolidos" class="portfolio-link" data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{% static "img/Index/Proyectos/camionesbasura.png"%}"  class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Desechos solidos</h4>
-                                          <p class="text-muted">El camión recolector circula los días lunes, miércoles y
-                                            viernes dentro del área urbana  en los Barrios El Centro, El Calvario, El Rosario,
-                                            El Carmen y El Tránsito; también llega hasta los cantones Soledad Las Flores y San Bartolo.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/alumbrado" class="portfolio-link" data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{% static "img/Index/Proyectos/Alumbrados.jpg" %}" class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Alumbrado publico</h4>
-                                          <p class="text-muted">Reparación y mantenimiento preventivo de toda la red de luminarias de nuestro municipio, las cuales según el último censo realizado asciende a tres mil cien</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/mantenimientoCalles" class="portfolio-link" data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{% static "img/Index/Proyectos/mantenimientoCalles.jpg"%}"  class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Mantenimiento de calles</h4>
-                                          <p class="text-muted">Cumpliendo el compromisos con las comunidades, se están realizando trabajos de mantenimiento de calles hacia el municipio y hacia el lago</p>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-4 col-sm-6 portfolio-item">
-                                      <a href="/TasasMunicipales" class="portfolio-link" data-toggle="modal">
-                                          <div class="portfolio-hover">
-                                              <div class="portfolio-hover-content">
-                                                  <i class="fa fa-plus fa-3x"></i>
-                                              </div>
-                                          </div>
-                                          <img src="{% static "img/Index/Proyectos/Catastro.JPG" %}"  class="img-responsive" alt="">
-                                      </a>
-                                      <div class="portfolio-caption">
-                                          <h4>Catastro</h4>
-                                          <p class="text-muted">Trabajar para el municipio es nuestro compromiso, es por ello ponemos a disposición los servicios para realizar trámites catastrales.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </section>
-                      {% endblock Proyectos %}
-
-
-
-
-                      {% block Turismo %}
-            <i id="turismo"></i>
-              <div id="team" class="portfolio">
-              <div class="container">
-
-              <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center text">
-                  <h3>Turismo</h3>
-
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"> <a href="historia"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/cultura.jpg" %}"> </a> </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"><br><br><br><br><a href="historia" class="view-more">Historia</a> </div></div>
-
-                    </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/infraestructuraGR" class="portfolio-link"  data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
                   </div>
-                  <!-- /.row (nested) -->
-
+                </div>
+                <img src="{%static "img/Index/Proyectos/Infraestructura.JPG"%}"  class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Infraestructura y gestión de riesgos</h4>
+                <p class="text-muted">La infraestructura del municipio es muy importante para su desarrollo, en esta sección encontraras todo lo relacionado respecto a la gestión de riesgos</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/desechosSolidos" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img src="{% static "img/Index/Proyectos/camionesbasura.png"%}"  class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Desechos solidos</h4>
+                <p class="text-muted">El camión recolector circula los días lunes, miércoles y
+                  viernes dentro del área urbana  en los Barrios El Centro, El Calvario, El Rosario,
+                El Carmen y El Tránsito; también llega hasta los cantones Soledad Las Flores y San Bartolo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/alumbrado" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img src="{% static "img/Index/Proyectos/Alumbrados.jpg" %}" class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Alumbrado publico</h4>
+                <p class="text-muted">Reparación y mantenimiento preventivo de toda la red de luminarias de nuestro municipio, las cuales según el último censo realizado asciende a tres mil cien</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/mantenimientoCalles" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img src="{% static "img/Index/Proyectos/mantenimientoCalles.jpg"%}"  class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Mantenimiento de calles</h4>
+                <p class="text-muted">Cumpliendo el compromisos con las comunidades, se están realizando trabajos de mantenimiento de calles hacia el municipio y hacia el lago</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="/TasasMunicipales" class="portfolio-link" data-toggle="modal">
+                <div class="portfolio-hover">
+                  <div class="portfolio-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                  </div>
+                </div>
+                <img src="{% static "img/Index/Proyectos/Catastro.JPG" %}"  class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                <h4>Catastro</h4>
+                <p class="text-muted">Trabajar para el municipio es nuestro compromiso, es por ello ponemos a disposición los servicios para realizar trámites catastrales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endblock Proyectos %}
+    {% block Turismo %}
+      <i id="turismo"></i>
+      <div id="team" class="portfolio">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center text">
+              <h3>Turismo</h3>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="portfolio-item"> <a href="historia"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/cultura.jpg" %}"> </a> </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="portfolio-item"><br><br><br><br><a href="historia" class="view-more">Historia</a> </div></div>
+                </div>
+              </div>
+              <!-- /.row (nested) -->
+              <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <div id="team2" class="portfolio">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center text">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                    <div class="portfolio-item"> <a href="festival"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/festival1.jpg" %}"> </a> </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <div class="portfolio-item"><br><br><br><br><a href="festival" class="view-more">Festival Gastronómico</a> </div></div>
+                  </div>
+                </div>
+                <!-- /.row (nested) -->
                 <!-- /.col-lg-10 -->
               </div>
               <!-- /.row -->
-              </div>
-              <!-- /.container -->
-              </div>
-              <div id="team2" class="portfolio">
-              <div class="container">
-              <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center text">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"> <a href="festival"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/festival1.jpg" %}"> </a> </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"><br><br><br><br><a href="festival" class="view-more">Festival Gastronómico</a> </div></div>
-
-                    </div>
-                  </div>
-                  <!-- /.row (nested) -->
-
-                <!-- /.col-lg-10 -->
-              </div>
-              <!-- /.row -->
-              </div>
-              <!-- /.container -->
-              </div>
-              <div id="team3" class="portfolio">
-              <div class="container">
+            </div>
+            <!-- /.container -->
+          </div>
+          <div id="team3" class="portfolio">
+            <div class="container">
               <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center text">
                   <div class="row">
@@ -254,82 +233,64 @@
                     </div>
                     <div class="col-md-6 col-sm-6">
                       <div class="portfolio-item"><br><br><br><br><a href="turismo" class="view-more">Lugares Turísticos</a> </div></div>
-
                     </div>
                   </div>
                   <!-- /.row (nested) -->
-
-                <!-- /.col-lg-10 -->
-              </div>
-              <!-- /.row -->
+                  <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
               </div>
               <!-- /.container -->
-              </div>
-              <div id="team4" class="portfolio">
+            </div>
+            <div id="team4" class="portfolio">
               <div class="container">
-              <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center text">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"> <a href="fiestas"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/menu4.jpg" %}"> </a> </div>
+                <div class="row">
+                  <div class="col-lg-10 col-lg-offset-1 text-center text">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                        <div class="portfolio-item"> <a href="fiestas"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/menu4.jpg" %}"> </a> </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6">
+                        <div class="portfolio-item"><br><br><br><br><a href="fiestas" class="view-more">Fiestas Patronales</a> </div></div>
+                      </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"><br><br><br><br><a href="fiestas" class="view-more">Fiestas Patronales</a> </div></div>
-
-                    </div>
+                    <!-- /.row (nested) -->
+                    <!-- /.col-lg-10 -->
                   </div>
-                  <!-- /.row (nested) -->
-
-                <!-- /.col-lg-10 -->
-              </div>
-              <!-- /.row -->
-              </div>
-              <!-- /.container -->
+                  <!-- /.row -->
+                </div>
+                <!-- /.container -->
               </div>
               <div id="team5" class="portfolio">
-              <div class="container">
-              <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center text">
+                <div class="container">
                   <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"> <a href="comida"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/comida.png" %}"> </a> </div>
+                    <div class="col-lg-10 col-lg-offset-1 text-center text">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <div class="portfolio-item"> <a href="comida"> <img class="img-portfolio img-responsive" src="{% static "img/Index/Turismo/comida.png" %}"> </a> </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <div class="portfolio-item"><br><br><br><br><a href="comida" class="view-more">Comida Típica</a> </div></div>
+                        </div>
+                      </div>
+                      <!-- /.row (nested) -->
+                      <!-- /.col-lg-10 -->
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                      <div class="portfolio-item"><br><br><br><br><a href="comida" class="view-more">Comida Típica</a> </div></div>
-
-                    </div>
+                    <!-- /.row -->
                   </div>
-                  <!-- /.row (nested) -->
-
-                <!-- /.col-lg-10 -->
-              </div>
-              <!-- /.row -->
-              </div>
-              <!-- /.container -->
-              </div>
-
-
-            {% endblock Turismo %}
-
-
-
-
-          {% endblock cuerpo %}
-
-          {% block JS %}
-          <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
-
-          <!-- Bootstrap Core JavaScript -->
-          <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-
-          <!-- Plugin JavaScript -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-          <!-- Contact Form JavaScript -->
-          <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
-
-          <!-- Theme JavaScript -->
-          <script src="{% static "js/agency.js" %}"></script>
-          {% endblock %}
-
+                  <!-- /.container -->
+                </div>
+              {% endblock Turismo %}
+            {% endblock cuerpo %}
+            {% block JS %}
+              <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+              <!-- Bootstrap Core JavaScript -->
+              <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+              <!-- Plugin JavaScript -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+              <!-- Contact Form JavaScript -->
+              <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+              <!-- Theme JavaScript -->
+              <script src="{% static "js/agency.js" %}"></script>
+            {% endblock %}
           {% endblock contenido %}

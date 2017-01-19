@@ -12,7 +12,7 @@ from django.db import models
 
 from apps.gestion.models import *
 
-# Create your models here.
+# Definicion de todos los modelos a utilizar en la base de datos
 
 class Mensaje(models.Model):
 	nombre = models.CharField(max_length=30)
@@ -26,7 +26,7 @@ class Mensaje(models.Model):
 
 
 class ContactosEmergencia(models.Model):
-	nombre_contacto = models.CharField(max_length=30)
+	nombre_contacto = models.CharField(max_length=30, unique=True)
 	telefono=models.CharField(max_length=9)
 	class Meta:
 		verbose_name='Contacto de emergencia'
@@ -36,7 +36,7 @@ class ContactosEmergencia(models.Model):
 
 
 class Noticias(models.Model):
-	nombre_noticia = models.CharField(max_length=100)
+	nombre_noticia = models.CharField(max_length=100, unique=True)
 	descripcion = models.TextField(max_length=2000)
 	imagen_descriptiva = models.ImageField(upload_to='noticias/')
 
@@ -53,7 +53,7 @@ def noticia_delete(sender, instance, **kwargs):
 class Programa(models.Model):
 	nombre_programa = models.CharField(max_length=80, unique=True)
 	titulo = models.CharField(max_length=200)
-	descripcion = models.TextField(max_length=500)
+	descripcion = models.TextField(max_length=5000)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
 
 	def imagenes_asociadas(self):
@@ -66,7 +66,7 @@ class Programa(models.Model):
 		return '%s' %(self.nombre_programa)
 
 class TipoProyecto(models.Model):
-	tipo_proyecto = models.CharField(max_length=80)
+	tipo_proyecto = models.CharField(max_length=80, unique=True)
 	class Meta:
 		verbose_name='Tipo proyecto'
 		verbose_name_plural = 'Tipos proyectos'
@@ -74,7 +74,7 @@ class TipoProyecto(models.Model):
 		return '%s' %(self.tipo_proyecto)
 
 class Proyecto(models.Model):
-	tipo_proyecto = models.OneToOneField(TipoProyecto)
+	tipo_proyecto = models.ForeignKey(TipoProyecto)
 	titulo = models.CharField(max_length=200)
 	descripcion = models.TextField(max_length=500)
 	imagen  = models.ManyToManyField(ContenidoProyecto)
@@ -90,7 +90,7 @@ class Proyecto(models.Model):
 		return '%s' %(self.tipo_proyecto)
 
 class TipoTasa(models.Model):
-	nombre_tipo = models.CharField(max_length=80)
+	nombre_tipo = models.CharField(max_length=80, unique=True)
 	class Meta:
 		verbose_name='Tipo tasa municipal'
 		verbose_name_plural = 'Tipo tasas municipales'
@@ -99,9 +99,9 @@ class TipoTasa(models.Model):
 
 
 class Tasas(models.Model):
-	tipo = models.OneToOneField(TipoTasa)
+	tipo = models.ForeignKey(TipoTasa)
 	nombre_tasa = models.CharField(max_length=80)
-	monto = models.FloatField()
+	monto = models.CharField(max_length=60)
 
 	class Meta:
 		verbose_name='Tasa municipal'
@@ -110,7 +110,7 @@ class Tasas(models.Model):
 		return '%s' %(self.nombre_tasa)
 
 class Documento(models.Model):
-	nombre_documento = models.CharField(max_length=100)
+	nombre_documento = models.CharField(max_length=100, unique=True)
 	archivo = models.FileField(upload_to='documentos/')
 
 	class Meta:
@@ -120,7 +120,7 @@ class Documento(models.Model):
 		return '%s' %(self.nombre_documento)
 
 class Hermanamientos(models.Model):
-	descripcion = models.TextField(max_length=500)
+	descripcion = models.TextField(max_length=1000)
 	imagen  = models.ManyToManyField(ContenidoPrograma)
 
 	def imagenes_asociadas(self):
@@ -151,7 +151,7 @@ def imagen_descriptiva_delete(sender, instance, **kwargs):
 
 class Turismo(models.Model):
 	nombre= models.CharField(max_length=200)
-	descripcion = models.TextField(max_length=500)
+	descripcion = models.TextField(max_length=5000)
 	imagen  = models.ImageField(upload_to='turismoTemas/')
 
 	class Meta:
@@ -169,18 +169,18 @@ def imagen(sender, instance, **kwargs):
 
 class TurismoFotos(models.Model):
 	categoria = models.ForeignKey(Turismo)
-	nombre_foto = models.CharField(max_length=100)
-	imagen_turismo = models.ManyToManyField(ContenidoGaleriaTurismo)
+	nombre_galeria = models.CharField(max_length=100)
+	turismo_fotos = models.ManyToManyField(ContenidoGaleriaTurismo)
 	class Meta:
 		verbose_name='Turismo Foto'
 		verbose_name_plural='Turismo Fotos'
 	def __str__(self):
-		return '%s' %(self.nombre_foto)
+		return '%s' %(self.nombre_galeria)
 
 
 class Comida(models.Model):
     nombre= models.CharField(max_length=200)
-    descripcion = models.TextField(max_length=500)
+    descripcion = models.TextField(max_length=5000)
     imagen  = models.ImageField(upload_to='comidaTemas/')
 
     class Meta:
@@ -198,18 +198,18 @@ def imagen(sender, instance, **kwargs):
 
 class ComidaFotos(models.Model):
     categoria = models.ForeignKey(Comida)
-    nombre_foto = models.CharField(max_length=100)
-    imagen_comida = models.ManyToManyField(ContenidoGaleriaComida)
+    nombre_galeria = models.CharField(max_length=100)
+    comida_fotos = models.ManyToManyField(ContenidoGaleriaComida)
     class Meta:
         verbose_name='ComidaFoto'
         verbose_name_plural='Comida Fotos'
     def __str__(self):
-        return '%s' %(self.nombre_foto)
+        return '%s' %(self.nombre_galeria)
 
 
 class Festival(models.Model):
     nombre= models.CharField(max_length=200)
-    descripcion = models.TextField(max_length=500)
+    descripcion = models.TextField(max_length=5000)
     imagen  = models.ImageField(upload_to='festivalTemas/')
 
     class Meta:
@@ -227,13 +227,13 @@ def imagen(sender, instance, **kwargs):
 
 class FestivalFotos(models.Model):
     categoria = models.ForeignKey(Festival)
-    nombre_foto = models.CharField(max_length=100)
-    imagen_festival = models.ManyToManyField(ContenidoGaleriaFestival)
+    nombre_galeria = models.CharField(max_length=100)
+    festival_fotos = models.ManyToManyField(ContenidoGaleriaFestival)
     class Meta:
         verbose_name='Festival Foto'
         verbose_name_plural='Festival Fotos'
     def __str__(self):
-        return '%s' %(self.nombre_foto)
+        return '%s' %(self.nombre_galeria)
 
 
 class Fiesta(models.Model):
@@ -256,62 +256,53 @@ def imagen(sender, instance, **kwargs):
 
 class FiestaFotos(models.Model):
     categoria = models.ForeignKey(Fiesta)
-    nombre_foto = models.CharField(max_length=100)
-    imagen_fiesta = models.ManyToManyField(ContenidoGaleriaFiesta)
+    nombre_galeria = models.CharField(max_length=100)
+    fiesta_fotos = models.ManyToManyField(ContenidoGaleriaFiesta)
     class Meta:
         verbose_name='Fiesta Foto'
         verbose_name_plural='Fiesta Fotos'
     def __str__(self):
-        return '%s' %(self.nombre_foto)
+        return '%s' %(self.nombre_galeria)
+
+
+class Rol(models.Model):
+	nombre_rol = models.CharField(max_length=100, unique=True)
+	class Meta:
+		verbose_name='Rol'
+		verbose_name_plural='Roles'
+	def __str__(self):
+		return '%s' %(self.nombre_rol)
 
 class Concejo(models.Model):
-	nombre_alcalde = models.CharField(max_length=255)
-	nombre_sindico = models.CharField(max_length=255)
-	nombre_PRP = models.CharField(max_length=255)
-	nombre_SRP = models.CharField(max_length=255)
-	nombre_TRP = models.CharField(max_length=255)
-	nombre_CRP = models.CharField(max_length=255)
-	nombre_PRS = models.CharField(max_length=255)
-	nombre_SRS = models.CharField(max_length=255)
-	nombre_TRS = models.CharField(max_length=255)
-	nombre_CRS = models.CharField(max_length=255)
-
+	nombre_persona = models.CharField(max_length=255)
+	rol = models.ForeignKey(Rol)
 	class Meta:
 		verbose_name='Concejo municipal'
 		verbose_name_plural = 'Concejos municipales'
 	def __str__(self):
-		return '%s' %(self.nombre_alcalde)
+		return '%s' %(self.nombre_persona)
+
 
 class DiscursoAlcalde(models.Model):
-	discurso_alcalde = models.TextField(max_length=255)
+	discurso_alcalde = models.TextField(max_length=1500)
 	class Meta:
 		verbose_name='Discurso del alcalde'
 		verbose_name_plural = 'Discursos del alcalde'
 	def __str__(self):
 		return '%s' %(self.discurso_alcalde)
 
-class Nomina(models.Model):
-	nombre_secretaria = models.CharField(max_length=255)
-	nombre_auditor = models.CharField(max_length=255)
-	nombre_contador = models.CharField(max_length=255)
-	nombre_info_publica = models.CharField(max_length=255)
-	nombre_UACI = models.CharField(max_length=255)
-	nombre_tesorero = models.CharField(max_length=255)
-	nombre_cuentas_corrientes = models.CharField(max_length=255)
-	nombre_estado_familiar = models.CharField(max_length=255)
-	nombre_medio_ambiente = models.CharField(max_length=255)
-	nombre_proyeccion = models.CharField(max_length=255)
-	nombre_atencion = models.CharField(max_length=255)
-	nombre_motorista = models.CharField(max_length=255)
-	nombre_ordenanza = models.CharField(max_length=255)
-	nombre_mantenimiento = models.CharField(max_length=255)
-	nombre_mantenimiento2 = models.CharField(max_length=255)
-	nombre_vigilante = models.CharField(max_length=255)
-	nombre_vigilante2 = models.CharField(max_length=255)
-	nombre_vigilante3 = models.CharField(max_length=255)
-
+class Cargo(models.Model):
+	nombre_cargo = models.CharField(max_length=100, unique=True)
 	class Meta:
-		verbose_name='Nomina empleados'
-		verbose_name_plural = 'Nominas de empleados'
+		verbose_name='Cargo'
+		verbose_name_plural='Cargos'
 	def __str__(self):
-		return '%s' %(self.nombre_secretaria)				
+		return '%s' %(self.nombre_cargo)
+
+class Nomina(models.Model):
+	nombre_empleado = models.CharField(max_length=255)
+	cargo = models.ForeignKey(Cargo)
+	class Meta:
+		verbose_name_plural = 'Nomina de empleados'
+	def __str__(self):
+		return '%s' %(self.nombre_empleado)

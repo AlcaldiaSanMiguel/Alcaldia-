@@ -25,7 +25,7 @@ SECRET_KEY = '4dqglovsx^kafbr705*d_te-7hgdg4+g_k2=3@l8x3u!1c&-*c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['25.19.177.71','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     #'apps.material.frontend',
     #'apps.material.admin',
     #'django_admin_bootstrapped',
-   
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
